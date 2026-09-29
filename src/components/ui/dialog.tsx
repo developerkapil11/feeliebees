@@ -32,7 +32,7 @@ export function Dialog({
       onClick={(event) => {
         if (event.target === event.currentTarget) close();
       }}
-      className="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-32px)] max-w-[680px] overflow-y-auto rounded-3xl border-0 bg-cream p-0 text-navy shadow-2xl backdrop:bg-navy/50 backdrop:backdrop-blur-sm"
+      className="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-32px)] max-w-170 overflow-y-auto rounded-3xl border-0 bg-cream p-0 text-navy shadow-2xl backdrop:bg-navy/50 backdrop:backdrop-blur-sm"
     >
       <div className="p-6 tablet:p-9">
         <div className="mb-6 flex items-start justify-between gap-4">

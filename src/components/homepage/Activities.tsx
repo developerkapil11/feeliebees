@@ -14,7 +14,7 @@ export default function Activities() {
     const router = useRouter();
     return (
         <section
-        className="activities-section relative h-[400px] overflow-hidden bg-[#b5eaff] desktop:grid desktop:h-auto desktop:grid-cols-1 max-desktop:[&>.section-art]:top-auto max-desktop:[&>.section-art]:bottom-0 max-desktop:[&>.section-art]:-left-[60%] max-desktop:[&>.section-art]:h-[210px] max-desktop:[&>.section-art]:w-[160%] max-desktop:[&>.section-art]:max-w-none max-desktop:[&>.section-art]:object-right"
+        className="activities-section relative h-100 overflow-hidden bg-[#b5eaff] desktop:grid desktop:h-auto desktop:grid-cols-1 max-desktop:[&>.section-art]:top-auto max-desktop:[&>.section-art]:bottom-0 max-desktop:[&>.section-art]:left-[-60%] max-desktop:[&>.section-art]:h-52.5 max-desktop:[&>.section-art]:w-[160%] max-desktop:[&>.section-art]:max-w-none max-desktop:[&>.section-art]:object-right"
         id="activities"
         aria-labelledby="activities-title"
         >
@@ -26,7 +26,7 @@ export default function Activities() {
           sizes="100vw"
           className="section-art pointer-events-none absolute inset-0 z-0 h-full w-full object-cover desktop:relative desktop:inset-auto desktop:col-start-1 desktop:row-start-1 desktop:block desktop:h-auto desktop:object-contain"
         />
-        <div className="activities-copy relative z-1 w-full px-[5%] pt-[27px] text-center desktop:col-start-1 desktop:row-start-1 desktop:w-[40%] desktop:self-center desktop:pt-0 desktop:pr-0 desktop:pl-[6%] desktop:text-left [&>h2]:text-[37px] tablet:[&>h2]:text-[max(39px,4.4vw)] [&_.doodle-heart]:ml-[9px] [&_.doodle-heart]:text-[.65em] [&>p]:mx-auto [&>p]:mt-3 [&>p]:mb-[17px] [&>p]:max-w-[350px] [&>p]:text-[13px] [&>p]:leading-[1.3] desktop:[&>p]:mx-0 desktop:[&>p]:mt-2.5 desktop:[&>p]:mb-4 desktop:[&>p]:max-w-none desktop:[&>p]:text-[11px] tablet:[&>p]:text-[max(13px,1.35vw)] wide:[&>p]:mt-[.5em] wide:[&>p]:mb-[.8em] [&>.button]:min-h-[47px] [&>.button]:min-w-[265px] [&>.button]:text-sm desktop:[&>.button]:min-h-[42px] desktop:[&>.button]:min-w-[225px] desktop:[&>.button]:text-[13px] tablet:[&>.button]:min-h-[47px] tablet:[&>.button]:min-w-60 tablet:[&>.button]:text-[max(14px,1.45vw)] min-[71.9375rem]:[&>.button]:min-h-[52px] min-[71.9375rem]:[&>.button]:min-w-[300px] wide:[&>.button]:min-h-[2.6em] wide:[&>.button]:min-w-[14.4em]">
+        <div className="activities-copy relative z-1 w-full px-[5%] pt-6.75 text-center desktop:col-start-1 desktop:row-start-1 desktop:w-[40%] desktop:self-center desktop:pt-0 desktop:pr-0 desktop:pl-[6%] desktop:text-left [&>h2]:text-[37px] tablet:[&>h2]:text-[max(39px,4.4vw)] [&_.doodle-heart]:ml-2.25] [&_.doodle-heart]:text-[.65em] [&>p]:mx-auto [&>p]:mt-3 [&>p]:mb-4.25 [&>p]:max-w-87.5 [&>p]:text-[13px] [&>p]:leading-[1.3] desktop:[&>p]:mx-0 desktop:[&>p]:mt-2.5 desktop:[&>p]:mb-4 desktop:[&>p]:max-w-none desktop:[&>p]:text-[11px] tablet:[&>p]:text-[max(13px,1.35vw)] wide:[&>p]:mt-[.5em] wide:[&>p]:mb-[.8em] [&>.button]:min-h-11.75 [&>.button]:min-w-66.25 [&>.button]:text-sm desktop:[&>.button]:min-h-10.5 desktop:[&>.button]:min-w-56.25 desktop:[&>.button]:text-[13px] tablet:[&>.button]:min-h-11.75 tablet:[&>.button]:min-w-60 tablet:[&>.button]:text-[max(14px,1.45vw)] min-[71.min-[71.9375rem]:[&>.button]:min-h-13 min-[71.9375rem]:[&>.button]:min-w-75 wide:[&>.button]:min-h-[2.6em] wide:[&>.button]:min-w-[14.4em]">
           <h2 id="activities-title">
             Free Activities <DoodleHeart />
           </h2>
