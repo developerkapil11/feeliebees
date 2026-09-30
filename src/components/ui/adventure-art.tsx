@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-export function AdventureArt() {
+export function AdventureArt({ src }: { src: string }) {
   const art = (
     <Image
-      src="/assets/homepage/adventure-with-board-text.webp"
+      src={src}
       alt="Heartly leaps over a woodland bridge beside a sign reading: Builds emotional awareness; Encourages kindness and empathy; Supports real-life situations; Fun, hands-on learning."
       width={2172}
       height={724}

@@ -10,7 +10,7 @@ const buttonStyles = {
     white: "border-[#f0e8d8] bg-[#fffefa] shadow-[0_3px_1px_#d7c5a12b]",
   };
 
-export default function Activities() {
+export default function Activities({ src }: { src: string }) {
     const router = useRouter();
     return (
         <section
@@ -19,7 +19,7 @@ export default function Activities() {
         aria-labelledby="activities-title"
         >
         <Image
-          src="/assets/homepage/activities.webp"
+          src={src}
           alt="Printable feelings charts, a Heartly picture, and a fox colouring page with colourful pencils"
           width={2172}
           height={724}

@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { type EmblemType } from "@/components/ui/brand";
 import { Emblem } from "@/components/ui/brand";
 
-export default function Product() {
+export default function Product({ src }: { src: string }) {
     const router = useRouter();
     return (
         <section
@@ -84,7 +84,7 @@ export default function Product() {
         </div>
         <div className="product-image relative aspect-[1.5] w-full self-center overflow-hidden desktop:aspect-auto desktop:border-l-2 desktop:border-white [&>img]:h-full [&>img]:w-full [&>img]:object-contain desktop:[&>img]:relative desktop:[&>img]:block desktop:[&>img]:h-auto">
           <Image
-            src="/assets/homepage/product.webp"
+            src={src}
             alt="The complete Heartly’s Pocket of Feelings set: illustrated book, fox, drawstring bag, emotion cards and colourful heart tokens"
             width={1536}
             height={1024}

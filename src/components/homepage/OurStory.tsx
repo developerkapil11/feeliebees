@@ -9,16 +9,16 @@ const buttonStyles = {
   white: "border-[#f0e8d8] bg-[#fffefa] shadow-[0_3px_1px_#d7c5a12b]",
 };
 
-export default function OurStory() {
+export default function OurStory({ src }: { src: string }) {
   const router = useRouter();
   return (
     <section
-      className="story-section relative h-87.5 overflow-hidden border-t-2 border-white/40 desktop:grid desktop:h-auto desktop:grid-cols-1 max-desktop:[&>.section-art]:top-auto max-desktop:[&>.section-art]:bottom-0 max-desktop:[&>.section-art]:h-41.25 max-desktop:[&>.section-art]:object-contain"
+      className="story-section relative h-87.5 overflow-hidden border-t-2 desktop:grid desktop:h-auto desktop:grid-cols-1 max-desktop:[&>.section-art]:top-auto max-desktop:[&>.section-art]:bottom-0 max-desktop:[&>.section-art]:h-41.25 max-desktop:[&>.section-art]:object-contain"
       id="our-story"
       aria-labelledby="story-title"
     >
       <Image
-        src="/assets/homepage/story.webp"
+        src={src}
         alt="Heartly, a little snail, and a friendly bunny in a flower-filled garden"
         width={2172}
         height={724}

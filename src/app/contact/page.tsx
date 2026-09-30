@@ -13,11 +13,11 @@ export default function Contact() {
     return (
         <main id="main" className={v2Classes("homepage-v2")}>
             <HeroV2 />
-            <OurStory />
-            <Product />
-            <Adventure />
-            <Help />
-            <Activities />
+            <OurStory src="/assets/beesHomepage/story2.png" />
+            <Product src="/assets/beesHomepage/product.png" />
+            <Adventure src="/assets/beesHomepage/adventure.png" />
+            <Help src="/assets/beesHomepage/hug.png" />
+            <Activities src="/assets/beesHomepage/activitiess.png" />
             <Blogs />
         </main>
     );

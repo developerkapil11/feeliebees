@@ -25,7 +25,7 @@ const benefits: { icon: EmblemType; title: string; text: string }[] = [
     },
 ];
   
-export default function Help() {
+export default function Help({ src }: { src: string }) {
     return (
         <section
         className="benefits-section relative overflow-hidden bg-[#fffaf1] pb-73.75 desktop:grid desktop:grid-cols-1 desktop:pb-0"
