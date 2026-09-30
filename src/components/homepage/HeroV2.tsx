@@ -53,7 +53,7 @@ function BannerArt({
     <picture className={className}>
       <source
         media="(max-width: 700px)"
-        srcSet={`/assets/home-v2/${name}-portrait-mobile.webp`}
+        srcSet={`/assets/homepage/hero-portrait-mobile.webp`}
       />
 
       <Image
