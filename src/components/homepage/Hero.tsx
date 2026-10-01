@@ -8,7 +8,7 @@ import { Emblem } from "@/components/ui/brand";
 
 const buttonStyles = {
   base: "inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-[26px] border-2 border-white/60 px-[25px] py-3 text-[max(14px,1.45vw)] leading-[1.15] font-[850] whitespace-nowrap shadow-[0_3px_0_#a9791811,inset_0_0_0_1px_#fff3] transition duration-200 hover:-translate-y-[3px] hover:shadow-[0_6px_12px_#10234416] active:translate-y-0 [&>svg]:size-[21px] wide:min-h-[2.6em] wide:gap-[.5em] wide:rounded-[1.4em] wide:px-[1.25em] wide:py-[.6em] wide:[&>svg]:size-[1.1em]",
-  pink: "bg-linear-[110deg,#ff5c86,#ff507c] text-white shadow-[0_4px_0_#f3a28b15,inset_0_0_0_1px_#ff98ae]",
+  orange: "bg-linear-[110deg,#ff5519,#ff6a32] text-white shadow-[0_4px_0_#f3a28b15,inset_0_0_0_1px_#ff7a4d]",
   yellow: "bg-linear-[110deg,#ffca35,#ffc42c]",
   white: "border-[#f0e8d8] bg-[#fffefa] shadow-[0_3px_1px_#d7c5a12b]",
 };
@@ -69,7 +69,7 @@ export default function Hero({ src }: { src: string }) {
             </p>
             <div className="hero-buttons mt-5 flex justify-center gap-3 desktop:mt-4.5 desktop:justify-start desktop:gap-2.5 min-[71.9375rem]:mt-5.75 min-[71.9375rem]:gap-3.75 wide:mt-[1.15em] wide:gap-[.75em] [&>.button]:min-h-11.75 [&>.button]:px-4.25 [&>.button]:py-2.75 [&>.button]:text-[13px] desktop:[&>.button]:min-h-10.5 desktop:[&>.button]:px-3 desktop:[&>.button]:text-xs tablet:[&>.button]:min-h-11.5 tablet:[&>.button]:px-3.75 tablet:[&>.button]:text-[max(13px,1.31vw)] min-[71.9375rem]:[&>.button]:min-h-13.5 min-[71.9375rem]:[&>.button]:px-5.25 min-[71.9375rem]:[&>.button]:py-3.25 wide:[&>.button]:min-h-[2.85em] wide:[&>.button]:px-[1.1em] wide:[&>.button]:py-[.7em] max-[23.75rem]:gap-2 max-[23.75rem]:[&>.button]:px-3 max-[23.75rem]:[&>.button]:text-xs">
               <Link
-                className={`button button-pink ${buttonStyles.base} ${buttonStyles.pink}`}
+                className={`button button-pink ${buttonStyles.base} ${buttonStyles.orange}`}
                 href="/shop"
               >
                 Explore Heartly <ArrowRight />

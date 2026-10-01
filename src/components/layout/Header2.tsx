@@ -10,7 +10,6 @@ import Logo from "@/components/ui/logo";
 import { navigation, site } from "@/lib/site";
 import { posts, products } from "@/lib/content";
 import { Dialog } from "@/components/ui/dialog";
-import { field } from "@/components/ui/page-ui";
 
 export function Header2() {
   const pathname = usePathname();
@@ -84,7 +83,7 @@ export function Header2() {
               <Logo />
             </Link>
   
-            {/* Desktop Navigation */}
+            {/* DesktopNavigation */}
             <nav
               aria-label="Main navigation"
               className="desktop-nav ml-auto hidden items-center gap-[1.7vw] tablet:flex"

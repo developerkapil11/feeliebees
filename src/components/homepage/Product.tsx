@@ -76,7 +76,7 @@ export default function Product({ src }: { src: string }) {
             ))}
           </div>
           <button
-            className="button inline-flex min-h-13 items-center justify-center gap-2.5 rounded-[26px] border-2 border-white/60 px-6.25 py-3 text-[max(14px,1.45vw)] leading-[1.15] font-[850] whitespace-nowrap shadow-[0_3px_0_#a9791811,inset_0_0_0_1px_#fff3] transition duration-200 hover:-translate-y-0.75 hover:shadow-[0_6px_12px_#10234416] active:translate-y-0 [&>svg]:size-5.25 wide:min-h-[2.6em] wide:gap-[.5em] wide:rounded-[1.4em] wide:px-[1.25em] wide:py-[.6em] wide:[&>svg]:size-[1.1em] button-pink bg-linear-[110deg,#ff5c86,#ff507c] text-white shop-now min-w-52.5 text-base desktop:min-h-11.5 desktop:min-w-45 tablet:min-h-13 tablet:text-[max(14px,1.45vw)] min-[71.9375rem]:min-h-15.5 min-[71.9375rem]:min-w-56.25 wide:min-w-[10.8em]"
+            className="button inline-flex min-h-13 items-center justify-center gap-2.5 rounded-[26px] border-2 border-white/60 px-6.25 py-3 text-[max(14px,1.45vw)] leading-[1.15] font-[850] whitespace-nowrap shadow-[0_3px_0_#a9791811,inset_0_0_0_1px_#fff3] transition duration-200 hover:-translate-y-0.75 hover:shadow-[0_6px_12px_#10234416] active:translate-y-0 [&>svg]:size-5.25 wide:min-h-[2.6em] wide:gap-[.5em] wide:rounded-[1.4em] wide:px-[1.25em] wide:py-[.6em] wide:[&>svg]:size-[1.1em] button-orange bg-linear-[110deg,#ff5519,#ff6a32] text-white shop-now min-w-52.5 text-base desktop:min-h-11.5 desktop:min-w-45 tablet:min-h-13 tablet:text-[max(14px,1.45vw)] min-[71.9375rem]:min-h-15.5 min-[71.9375rem]:min-w-56.25 wide:min-w-[10.8em]"
             onClick={() => router.push("/shop")}
           >
             Shop Now <ArrowRight />
