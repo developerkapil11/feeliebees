@@ -11,7 +11,7 @@ import Blogs from "./Blogs";
 export default function FeelieBees() {
   return (
     <main id="main">
-        <Hero src="/assets/homepage/hero.webp" />
+        <Hero src="/assets/homepage/hero_banner_imgg.png" />
         <OurStory src="/assets/homepage/story.webp" />
         <Product src="/assets/homepage/product.webp" />
         <Adventure src="/assets/homepage/adventure-with-board-text.webp" />
