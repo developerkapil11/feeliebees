@@ -3,7 +3,7 @@
 import { useId, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, LoaderCircle, Mail } from "lucide-react";
-import { field, pinkButton, yellowButton } from "./page-ui";
+import { field, primaryButton } from "./page-ui";
 import { site } from "@/lib/site";
 
 function useSubmission(endpoint: string) {
@@ -82,7 +82,7 @@ export function ActivityRequestForm({
         </strong>
         {receipt.demo ? (
           <>
-            <p className="mt-2 wrap-break-word">To: {receipt.email}</p>
+            <p className="mt-2 break-words">To: {receipt.email}</p>
             <p className="mt-2">
               Here’s your little kindness activity. Print it, add some crayons,
               and enjoy a moment together.
@@ -139,7 +139,7 @@ export function ActivityRequestForm({
             aria-describedby={error ? `${id}-error` : `${id}-privacy`}
           />
           <button
-            className={yellowButton}
+            className={primaryButton}
             disabled={state === "sending"}
             type="submit"
           >
@@ -196,7 +196,7 @@ export function ContactForm() {
             ? "The form worked! This is a demo, so your message was not emailed or saved."
             : "Thank you for getting in touch. The FeelieBees team will reply to the email address you shared."}
         </p>
-        <Link className={`${yellowButton} mt-7`} href="/activities">
+        <Link className={`${primaryButton} mt-7`} href="/activities">
           Explore a free activity <ArrowRight />
         </Link>
       </div>
@@ -293,7 +293,7 @@ export function ContactForm() {
       )}
       <button
         disabled={state === "sending"}
-        className={pinkButton}
+        className={primaryButton}
         type="submit"
       >
         {state === "sending" ? (

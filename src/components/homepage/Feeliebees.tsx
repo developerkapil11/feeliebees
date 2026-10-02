@@ -7,17 +7,19 @@ import Adventure from "./Adventure";
 import Help from "./Help";
 import Activities from "./Activities";
 import Blogs from "./Blogs";
+import LetsTalk from "./LetsTalk";
 
 export default function FeelieBees() {
   return (
     <main id="main">
-        <Hero src="/assets/homepage/hero_banner_imgg.png" />
-        <OurStory src="/assets/homepage/story.webp" />
-        <Product src="/assets/homepage/product.webp" />
-        <Adventure src="/assets/homepage/adventure-with-board-text.webp" />
-        <Help src="/assets/homepage/hug.webp" />
-        <Activities src="/assets/homepage/activities.webp" />
+        <Hero src="/assets/homepage/hero-meadow.png" />
+        <OurStory src="/assets/homepage/story-mirrored-family.webp" />
+        <Product src="/assets/homepage/heartly-sunlit-meadow.webp" />
+        <Adventure src="/assets/homepage/adventure-dreamy-foxes.webp" />
+        <Help src="/assets/homepage/benefits-foxes-butterflies.webp" />
+        <Activities src="/assets/homepage/activities-woodland-meadow.webp" />
         <Blogs />
+        <LetsTalk />
     </main>
   );
 }

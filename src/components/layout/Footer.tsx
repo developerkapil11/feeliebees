@@ -1,6 +1,6 @@
 import { FooterArt } from "@/components/ui/footer-art";
 import Link from "next/link";
-import Logo from "@/components/ui/logo";
+import { Logo } from "@/components/ui/brand";
 import { SocialIcon } from "@/components/ui/social-icon";
 import { ActivityRequestForm } from "@/components/ui/forms";
 import { navigation, site } from "@/lib/site";

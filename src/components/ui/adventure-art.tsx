@@ -4,7 +4,8 @@ export function AdventureArt({ src }: { src: string }) {
   const art = (
     <Image
       src={src}
-      alt="Heartly leaps over a woodland bridge beside a sign reading: Builds emotional awareness; Encourages kindness and empathy; Supports real-life situations; Fun, hands-on learning."
+      unoptimized
+      alt="Playful foxes explore a woodland clearing while a fox family shares a quiet moment beside a green sofa"
       width={2172}
       height={724}
       sizes="100vw"
