@@ -51,27 +51,20 @@ export default function Hero({ src }: { src: string }) {
       <div className="hero-inner relative px-[6%] pt-31.25 desktop:col-start-1 desktop:row-start-1 desktop:z-1 desktop:pt-30 desktop:pr-0 desktop:pl-[9%] min-[71.9375rem]:pt-[clamp(125px,8.5vw,165px)] min-[71.9375rem]:pl-[10%] max-[23.75rem]:px-[5%]">
         <div className="hero-copy relative z-1 w-full desktop:w-[47%] tablet:w-[46%] min-[71.9375rem]:w-[44%]">
           <p className="eyebrow mb-3 text-center text-[10px] font-[850] tracking-[.015em] uppercase desktop:mb-2.75 desktop:text-left tablet:text-[max(10px,1.17vw)] wide:mb-[.65em]">
-            A kinder, brighter way to explore emotions
+            Helping little hearts understand big feelings
           </p>
           <h1 id="hero-title">
-            Helping little hearts <br />
-            understand
-            <br />
-            <span>big feelings</span>
+            Growing Emotional & Social Skills Through Play.
           </h1>
           <p className="hero-description mx-auto max-w-101.25 text-center text-sm leading-[1.45] font-[750] desktop:mx-0 desktop:max-w-none desktop:text-left desktop:text-xs tablet:text-sm min-[71.9375rem]:text-[max(13px,1.36vw)] max-[23.75rem]:text-[13px]">
-            Heartly’s Pocket of Feelings helps children
-            <br className="desktop-break hidden desktop:inline" /> recognize,
-            understand and express their emotions
-            <br className="desktop-break hidden desktop:inline" /> through fun
-            stories, activities and gentle guidance.
+            At FeelieBees, we believe emotional growth begins with connection. Our playful stories, games, and hands-on activities help children understand and share their feelings while connecting with the people who care for them.
           </p>
           <div className="hero-buttons mt-5 flex justify-center gap-3 desktop:mt-4.5 desktop:justify-start desktop:gap-2.5 min-[71.9375rem]:mt-5.75 min-[71.9375rem]:gap-3.75 wide:mt-[1.15em] wide:gap-[.75em] [&>.button]:min-h-11.75 [&>.button]:px-4.25 [&>.button]:py-2.75 [&>.button]:text-[13px] desktop:[&>.button]:min-h-10.5 desktop:[&>.button]:px-3 desktop:[&>.button]:text-xs tablet:[&>.button]:min-h-11.5 tablet:[&>.button]:px-3.75 tablet:[&>.button]:text-[max(13px,1.31vw)] min-[71.9375rem]:[&>.button]:min-h-13.5 min-[71.9375rem]:[&>.button]:px-5.25 min-[71.9375rem]:[&>.button]:py-3.25 wide:[&>.button]:min-h-[2.85em] wide:[&>.button]:px-[1.1em] wide:[&>.button]:py-[.7em] max-[23.75rem]:gap-2 max-[23.75rem]:[&>.button]:px-3 max-[23.75rem]:[&>.button]:text-xs">
             <Link
               className={`button ${buttonStyles.base} ${buttonStyles.orange}`}
               href="/shop"
             >
-              Explore Heartly <ArrowRight />
+              Discover Heartly’s Pocket of Feelings <ArrowRight />
             </Link>
             <AmazonButton />
           </div>
@@ -79,45 +72,29 @@ export default function Hero({ src }: { src: string }) {
             {(
               [
                 {
-                  icon: "heart",
-                  text: (
-                    <>
-                      Builds
-                      <br />
-                      Emotional Skills
-                    </>
-                  ),
-                },
-                {
-                  icon: "sprout",
-                  text: (
-                    <>
-                      Fun &amp;
-                      <br />
-                      Engaging
-                    </>
-                  ),
-                },
-                {
                   icon: "star",
                   text: (
                     <>
-                      Loved by
-                      <br />
-                      Families &amp; Educators
+                      Builds Emotional Skills
                     </>
                   ),
                 },
                 {
-                  icon: "people",
+                  icon: "butterfly",
                   text: (
                     <>
-                      Ages
-                      <br />
-                      3–7
+                      Fun & Engaging
                     </>
                   ),
                 },
+                {
+                  icon: "heart",
+                  text: (
+                    <>
+                      Loved by Families & Educators
+                    </>
+                  ),
+                }
               ] as { icon: EmblemType; text: ReactNode }[]
             ).map(({ icon, text }) => (
               <div key={icon}>

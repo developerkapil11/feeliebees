@@ -12,7 +12,6 @@ export const site = {
 
 export const navigation = [
   { label: "Home", href: "/" },
-  { label: "Our Story", href: "/#our-story" },
   { label: "Shop", href: "/shop" },
   { label: "Free Activities", href: "/activities" },
   { label: "Blog", href: "/blog" },

@@ -12,7 +12,7 @@ export default function Activities({ src }: { src: string }) {
   const router = useRouter();
   return (
     <section
-      className="activities-section relative flex flex-col overflow-hidden bg-cream desktop:grid desktop:min-h-[440px] desktop:grid-cols-1"
+      className="activities-section relative flex flex-col overflow-hidden bg-cream desktop:grid desktop:min-h-110 desktop:grid-cols-1"
       id="activities"
       aria-labelledby="activities-title"
     >
@@ -25,14 +25,15 @@ export default function Activities({ src }: { src: string }) {
         sizes="100vw"
         className="section-art pointer-events-none relative order-2 block h-auto w-full self-center desktop:col-start-1 desktop:row-start-1 desktop:h-full desktop:self-stretch desktop:object-cover"
       />
-      <div className="activities-copy relative z-1 order-1 w-full px-[5%] pt-[27px] pb-6 text-left desktop:col-start-1 desktop:row-start-1 desktop:w-[50%] desktop:self-center desktop:py-[3vw] desktop:pr-[6%] desktop:pl-[6%] desktop:text-left [&>h2]:text-[37px] tablet:[&>h2]:text-[max(39px,4.4vw)] [&_.doodle-heart]:ml-[9px] [&_.doodle-heart]:text-[.65em] [&>p]:mx-0 [&>p]:mt-3 [&>p]:mb-[17px] [&>p]:max-w-[350px] [&>p]:text-[13px] [&>p]:leading-[1.3] desktop:[&>p]:mx-0 desktop:[&>p]:mt-2.5 desktop:[&>p]:mb-4 desktop:[&>p]:max-w-none desktop:[&>p]:text-[11px] tablet:[&>p]:text-[max(13px,1.35vw)] wide:[&>p]:mt-[.5em] wide:[&>p]:mb-[.8em] [&>.button]:min-h-[47px] [&>.button]:min-w-[265px] [&>.button]:text-sm desktop:[&>.button]:min-h-[42px] desktop:[&>.button]:min-w-[225px] desktop:[&>.button]:text-[13px] tablet:[&>.button]:min-h-[47px] tablet:[&>.button]:min-w-60 tablet:[&>.button]:text-[max(14px,1.45vw)] min-[71.9375rem]:[&>.button]:min-h-[52px] min-[71.9375rem]:[&>.button]:min-w-[300px] wide:[&>.button]:min-h-[2.6em] wide:[&>.button]:min-w-[14.4em]">
+      <div className="activities-copy relative z-1 order-1 w-full px-[5%] pt-6.75 pb-6 text-left desktop:col-start-1 desktop:row-start-1 desktop:w-[50%] desktop:self-center desktop:py-[3vw] desktop:pr-[6%] desktop:pl-[6%] desktop:text-left [&>h2]:text-[37px] tablet:[&>h2]:text-[max(39px,4.4vw)] [&_.doodle-heart]:ml-2.25 [&_.doodle-heart]:text-[.65em] [&>p]:mx-0 [&>p]:mt-3 [&>p]:mb-4.25 [&>p]:max-w-87.5 [&>p]:text-[13px] [&>p]:leading-[1.3] desktop:[&>p]:mx-0 desktop:[&>p]:mt-2.5 desktop:[&>p]:mb-4 desktop:[&>p]:max-w-none desktop:[&>p]:text-[11px] tablet:[&>p]:text-[max(13px,1.35vw)] wide:[&>p]:mt-[.5em] wide:[&>p]:mb-[.8em] [&>.button]:min-h-11.75 [&>.button]:min-w-66.25 [&>.button]:text-sm desktop:[&>.button]:min-h-10.5 desktop:[&>.button]:min-w-56.25 desktop:[&>.button]:text-[13px] tablet:[&>.button]:min-h-11.75 tablet:[&>.button]:min-w-60 tablet:[&>.button]:text-[max(14px,1.45vw)] min-[71.9375rem]:[&>.button]:min-h-13 min-[71.9375rem]:[&>.button]:min-w-75 wide:[&>.button]:min-h-[2.6em] wide:[&>.button]:min-w-[14.4em]">
         <h2 id="activities-title">
           Free Activities <DoodleHeart />
         </h2>
         <p>
-          Fun and engaging resources to help children learn about feelings
-          <br className="desktop-break hidden desktop:inline" /> through play,
-          creativity and connection.
+          Explore free printable activities that invite children and grownups to play, create, and talk about feelings together.
+        </p>
+        <p>
+          Please adjust the text layout so that line breaks feel natural, without leaving a single word on its own line.
         </p>
         <button
           className={`button ${buttonStyles.base} ${buttonStyles.orange}`}

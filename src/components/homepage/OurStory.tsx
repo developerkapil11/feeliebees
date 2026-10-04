@@ -26,33 +26,14 @@ export default function OurStory({ src }: { src: string }) {
         />
         <div className="story-copy relative mx-auto w-[94%] pt-6.5 text-center desktop:col-start-1 desktop:row-start-1 desktop:z-1 desktop:w-[40%] desktop:self-center desktop:py-4 [&>h2]:text-[35px] [&>h2]:whitespace-nowrap desktop:[&>h2]:text-[clamp(24px,3.1vw,64px)] [&>p]:mx-auto [&>p]:mt-3.25 [&>p]:mb-4.25 [&>p]:max-w-82.5 [&>p]:px-1.25 [&>p]:text-[13px] [&>p]:leading-[1.35] desktop:[&>p]:my-3 desktop:[&>p]:max-w-none desktop:[&>p]:px-0 desktop:[&>p]:text-[11px] desktop:[&>p]:leading-[1.27] tablet:[&>p]:text-[max(12px,1.3vw)] wide:[&>p]:mt-[.7em] wide:[&>p]:mb-[.9em] [&>.button]:min-h-11 [&>.button]:min-w-40 [&>.button]:text-sm desktop:[&>.button]:min-h-10 desktop:[&>.button]:min-w-38.75 desktop:[&>.button]:text-[13px] tablet:[&>.button]:min-h-11.25 tablet:[&>.button]:text-[max(14px,1.45vw)] min-[71.9375rem]:[&>.button]:min-h-13 min-[71.9375rem]:[&>.button]:min-w-47.5 wide:[&>.button]:min-h-[2.6em] wide:[&>.button]:min-w-[9.1em]">
           <h2 id="story-title">
-            <span
-              className="sun-rays mr-0 inline-block align-middle font-[Arial,sans-serif] text-[.6em] text-[#ffb71c] desktop:mr-1.5 desktop:text-[.66em]"
-              aria-hidden="true"
-            >
-              ☀
-            </span>{" "}
-            Meet FeelieBees{" "}
-            <span
-              className="little-leaf inline-block -rotate-45 align-middle font-[Georgia,serif] text-[.65em] text-[#438746] desktop:text-[.75em]"
-              aria-hidden="true"
-            >
-              ❧
-            </span>
+            Meet FeelieBees
           </h2>
           <p>
-            At FeelieBees, we believe every feeling matters. Our resources
-            <br className="desktop-break hidden desktop:inline" /> are created
-            to help children build emotional awareness,
-            <br className="desktop-break hidden desktop:inline" /> confidence
-            and kindness — for a happier, brighter tomorrow.
+            Inspired by Dr. Gordon Neufeld’s developmental attachment approach, FeelieBees is rooted in the belief that children grow through warm, trusting relationships. Our products nurture connection, creating a safe and playful space for children and grownups to explore feelings together.
           </p>
-          <button
-            className={`button ${buttonStyles.base} ${buttonStyles.orange}`}
-            onClick={() => router.push("/our-story")}
-          >
-            Our Story <ArrowRight />
-          </button>
+          <p>
+            We believe all feelings are natural and welcome. Each one plays a meaningful role in helping children grow, learn, and make sense of the world around them. Welcoming feelings goes hand in hand with setting caring boundaries and helping children express themselves in ways that are safe for themselves and others.
+          </p>
         </div>
       </section>
   );
