@@ -35,7 +35,7 @@ function AmazonButton() {
 export default function Hero({ src }: { src: string }) {
   return (
     <section
-      className="hero relative flex min-h-195 flex-col overflow-hidden bg-[#fff9eb] desktop:grid desktop:min-h-0 desktop:grid-cols-1 [&_h1]:mb-4.75 [&_h1]:text-center [&_h1]:text-[clamp(39px,8.7vw,54px)] [&_h1]:leading-none [&_h1]:tracking-[-.035em] [&_h1>span]:text-orange max-desktop:[&_h1>br:first-of-type]:hidden desktop:[&_h1]:mb-4.5 desktop:[&_h1]:text-left desktop:[&_h1]:text-[41px] desktop:[&_h1]:leading-[.91] tablet:[&_h1]:text-[max(43px,4.4vw)] min-[71.9375rem]:[&_h1]:mb-6.25 wide:[&_h1]:mb-[.4em]"
+      className="hero relative flex min-h-195 flex-col overflow-hidden bg-[#fff9eb] desktop:grid desktop:min-h-0 desktop:grid-cols-1 [&_h1]:mb-4.75 [&_h1]:text-center [&_h1]:text-[clamp(39px,8.7vw,54px)] [&_h1]:leading-none [&_h1]:tracking-[-.035em] [&_h1>span]:text-button-orange! max-desktop:[&_h1>br:first-of-type]:hidden desktop:[&_h1]:mb-4.5 desktop:[&_h1]:text-left desktop:[&_h1]:text-[41px] desktop:[&_h1]:leading-[.91] tablet:[&_h1]:text-[max(43px,4.4vw)] min-[71.9375rem]:[&_h1]:mb-6.25 wide:[&_h1]:mb-[.4em]"
       aria-labelledby="hero-title"
     >
       <Image

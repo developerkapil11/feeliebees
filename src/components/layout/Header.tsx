@@ -53,7 +53,7 @@ export function Header() {
     <>
       <a
         href="#main"
-        className="fixed -top-24 left-4 z-50 rounded-xl bg-white px-5 py-3 focus:top-3"
+        className="fixed -top-24 left-4 z-50 rounded-xl bg-[#eff2df] px-5 py-3 focus:top-3"
       >
         Skip to content
       </a>
@@ -62,7 +62,7 @@ export function Header() {
         <header
           id="home"
           data-variant="v2"
-          className={`site-header relative z-50 border-b border-[#f3f0e5] bg-white ${headerStyles}`}
+          className={`site-header relative z-50 ${headerStyles}`}
         >
           <div className="header-inner mx-auto flex min-h-19 w-[92%] items-center justify-between gap-3 py-2 tablet:w-[90%] wide:min-h-[5.8vw] wide:gap-[1.2vw]">
             <Link

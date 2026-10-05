@@ -19,25 +19,26 @@ export default function OurStory({ src }: { src: string }) {
 
       <div className="story-copy relative mx-auto w-[94%] pt-6.5 text-left desktop:col-start-1 desktop:row-start-1 desktop:z-1 desktop:mx-0 desktop:ml-[6%] desktop:w-[38%] desktop:self-center desktop:py-4 [&_h2]:text-[35px] [&_h2]:whitespace-nowrap desktop:[&_h2]:text-[clamp(24px,3.1vw,64px)] [&>p]:mx-auto [&>p]:mt-3.25 [&>p]:mb-4.25 [&>p]:max-w-82.5 [&>p]:px-1.25 [&>p]:text-[13px] [&>p]:leading-[1.35] desktop:[&>p]:my-3 desktop:[&>p]:max-w-none desktop:[&>p]:px-0 desktop:[&>p]:text-[11px] desktop:[&>p]:leading-[1.27] tablet:[&>p]:text-[max(12px,1.3vw)] wide:[&>p]:mt-[.7em] wide:[&>p]:mb-[.9em] [&>.button]:min-h-11 [&>.button]:min-w-40 [&>.button]:text-sm desktop:[&>.button]:min-h-10 desktop:[&>.button]:min-w-38.75 desktop:[&>.button]:text-[13px] tablet:[&>.button]:min-h-11.25 tablet:[&>.button]:text-[max(14px,1.45vw)] min-[71.9375rem]:[&>.button]:min-h-13 min-[71.9375rem]:[&>.button]:min-w-47.5 wide:[&>.button]:min-h-[2.6em] wide:[&>.button]:min-w-[9.1em]">
 
-        <div className="flex items-center gap-1">
-          <span
-            className="relative block h-6 w-6 shrink-0"
-            aria-hidden="true"
-          >
-            <Image
-              src="/icons/bee_icon.png"
-              alt=""
-              fill
-              unoptimized
-              sizes="24px"
-              className="object-contain"
-            />
-          </span>
+      <div className="relative z-10 flex items-center gap-1">
+        <span
+          className="relative z-10 block h-6 w-6 shrink-0 desktop:h-8 desktop:w-8"
+          aria-hidden="true"
+        >
+          <Image
+            src="/icons/bee_icon.png"
+            alt=""
+            width={32}
+            height={32}
+            unoptimized
+            sizes="32px"
+            className="block h-full w-full object-contain"
+          />
+        </span>
 
-          <h2 id="story-title">
-            Meet FeelieBees
-          </h2>
-        </div>
+        <h2 id="story-title">
+          Meet FeelieBees
+        </h2>
+      </div>
 
         <p>
           Inspired by Dr. Gordon Neufeld’s developmental attachment approach,
