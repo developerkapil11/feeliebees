@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="site-footer relative isolate overflow-hidden bg-[#eff2df]">
       {/* Main Footer Content */}
       <div className="footer-content mx-auto w-[86%] py-10 tablet:py-[4vw]">
-        <div className="grid grid-cols-1 gap-10 tablet:grid-cols-[1.2fr_0.8fr_0.9fr] tablet:gap-[5vw]">
+        <div className="grid grid-cols-1 gap-10 tablet:grid-cols-[1.35fr_0.75fr_auto] tablet:items-start tablet:gap-[4vw]">
           {/* Brand */}
           <div className="footer-brand">
             <Link href="/" aria-label="FeelieBees home">
@@ -57,14 +57,14 @@ export function Footer() {
           </div>
 
           {/* Heartly Illustration */}
-          <div className="flex items-end justify-start tablet:justify-end">
-            <div className="relative h-55 w-55 tablet:h-65 tablet:w-65">
+          <div className="flex justify-center tablet:justify-end">
+            <div className="relative h-60 w-36 tablet:h-72 tablet:w-42">
               <Image
-                src="/assets/footer/footer_right_img.png"
-                alt="Heartly holding a heart"
+                src="/assets/footer/heartly-holding-heart.png"
+                alt="Heartly making a heart shape with his hands"
                 fill
                 className="object-contain object-bottom"
-                sizes="(max-width: 768px) 220px, 260px"
+                sizes="(max-width: 767px) 144px, 168px"
               />
             </div>
           </div>

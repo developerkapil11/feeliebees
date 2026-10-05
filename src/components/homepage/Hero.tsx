@@ -54,7 +54,7 @@ export default function Hero({ src }: { src: string }) {
             Helping little hearts understand big feelings
           </p>
           <h1 id="hero-title">
-            Growing Emotional & Social Skills Through Play.
+            Growing <span>Emotional & Social Skills</span> Through Play.
           </h1>
           <p className="hero-description mx-auto max-w-101.25 text-center text-sm leading-[1.45] font-[750] desktop:mx-0 desktop:max-w-none desktop:text-left desktop:text-xs tablet:text-sm min-[71.9375rem]:text-[max(13px,1.36vw)] max-[23.75rem]:text-[13px]">
             At FeelieBees, we believe emotional growth begins with connection. Our playful stories, games, and hands-on activities help children understand and share their feelings while connecting with the people who care for them.

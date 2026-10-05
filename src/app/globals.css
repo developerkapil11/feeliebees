@@ -94,7 +94,7 @@
 }
 
 .blog-section {
-  background-color: #fff;
+  background-color: var(--color-cream);
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
 }
@@ -131,7 +131,7 @@
   }
 
   .hero .hero-art {
-    content: url("/assets/homepage/hero-meadow-mobile.png");
+    content: url("/assets/homepage/hero-foxes-butterflies-mobile.png");
     inset: 0;
     width: 100%;
     height: 100%;
@@ -142,20 +142,28 @@
 
   .story-section {
     height: auto;
-    aspect-ratio: 2 / 3;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
   }
 
   .story-section > .section-art {
-    content: url("/assets/homepage/story-family-mobile.png");
-    inset: 0;
+    content: url("/assets/homepage/meet-feeliebees-mobile.png");
+    position: relative;
+    inset: auto;
+    order: 2;
     width: 100%;
-    height: 100%;
+    height: min(120vw, 34rem);
     object-fit: cover;
-    object-position: center;
+    object-position: center bottom;
   }
 
   .story-section .story-copy {
-    padding-top: 20%;
+    order: 1;
+    width: 100%;
+    padding: 2.25rem 6% 1.75rem;
+    text-align: center;
   }
 
   .product-section {
@@ -184,48 +192,6 @@
     content: url("/assets/homepage/activities-fox-forest-mobile.png");
     object-fit: cover;
     object-position: center;
-  }
-
-  .activities-section {
-    display: grid;
-    aspect-ratio: 1;
-    background-color: #fff;
-  }
-
-  .activities-section > .section-art {
-    content: url("/assets/homepage/free-activities-woodland-mobile.png");
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .activities-section .activities-copy {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-    width: 60%;
-    padding: 20% 0 0 5%;
-    text-align: left;
-  }
-
-  .activities-section .activities-copy > p {
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  .activities-section .activities-copy > h2 {
-    font-size: 2rem;
-  }
-
-  .activities-section .activities-copy > .button {
-    min-width: 0;
-    max-width: 100%;
-    padding-right: 0.9rem;
-    padding-left: 0.9rem;
-    font-size: 0.75rem;
   }
 
   .adventure-section {

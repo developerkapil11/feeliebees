@@ -1,9 +1,33 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import type { ReactNode } from "react";
-import { type EmblemType } from "@/components/ui/brand";
-import { Emblem } from "@/components/ui/brand";
+
+const productFeatures = [
+  {
+    image: "/assets/product-icons/story-book-cutout.png",
+    alt: "Heartly's Pocket of Feelings storybook",
+    lines: ["Beautiful", "Storybook"],
+    imageClass: "object-contain",
+  },
+  {
+    image: "/assets/product-icons/fox-plush-cutout.png",
+    alt: "Heartly plush fox companion",
+    lines: ["Plush Fox", "Companion"],
+    imageClass: "object-contain",
+  },
+  {
+    image: "/assets/product-icons/feeling-hearts-sheet.png",
+    alt: "Nine illustrated feeling hearts",
+    lines: ["9 Feeling", "Hearts"],
+    imageClass: "object-contain",
+  },
+  {
+    image: "/assets/product-icons/emotion-cards-fan.png",
+    alt: "Nine Heartly emotion cards",
+    lines: ["9 Emotion", "Cards"],
+    imageClass: "object-contain",
+  },
+];
 
 export default function Product({ src }: { src: string }) {
   const router = useRouter();
@@ -27,54 +51,24 @@ export default function Product({ src }: { src: string }) {
         How It Works- Read Heartly’s story, choose a feeling heart from his pocket, and place it on his chest to share how you feel. Explore the matching emotion card together to keep the conversation going.
  
         </p>
-        <div className="product-features mx-auto my-6 grid max-w-95 grid-cols-4 gap-3 desktop:mx-0 desktop:my-4.5 desktop:max-w-none desktop:gap-1 tablet:gap-1.5 min-[71.9375rem]:mt-6 min-[71.9375rem]:mb-5.5 min-[71.9375rem]:gap-2.5 wide:mt-[1.2em] wide:mb-[1.1em] wide:gap-[.5em] [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:text-center [&>div]:text-[13px] [&>div]:leading-[1.17] desktop:[&>div]:text-[11px] tablet:[&>div]:text-[max(12px,1.35vw)] [&_.emblem-circle]:mb-2.5 [&_.emblem-circle]:size-16 desktop:[&_.emblem-circle]:size-13.25 tablet:[&_.emblem-circle]:size-15.25 min-[71.9375rem]:[&_.emblem-circle]:size-[clamp(66px,6.65vw,109px)] wide:[&_.emblem-circle]:mb-[.5em] wide:[&_.emblem-circle]:size-[6.65vw] max-[23.75rem]:gap-1.75 max-[23.75rem]:[&_.emblem-circle]:size-14.75">
-          {(
-            [
-              {
-                icon: "book",
-                text: (
-                  <>
-                    Beautiful
-                    <br />
-                    Storybook
-                  </>
-                ),
-              },
-              {
-                icon: "fox",
-                text: (
-                  <>
-                    Plush Fox
-                    <br />
-                    Companion
-                  </>
-                ),
-              },
-              {
-                icon: "heart",
-                text: (
-                  <>
-                    9 Feeling
-                    <br />
-                    Hearts
-                  </>
-                ),
-              },
-              {
-                icon: "cards",
-                text: (
-                  <>
-                    9 Emotion
-                    <br />
-                    Cards
-                  </>
-                ),
-              }
-            ] as { icon: EmblemType; text: ReactNode }[]
-          ).map(({ icon, text }) => (
-            <div key={icon}>
-              <Emblem type={icon} circle />
-              <span>{text}</span>
+        <div className="product-features mx-auto my-6 grid max-w-95 grid-cols-4 gap-3 desktop:mx-0 desktop:my-4.5 desktop:max-w-none desktop:gap-1 tablet:gap-1.5 min-[71.9375rem]:mt-6 min-[71.9375rem]:mb-5.5 min-[71.9375rem]:gap-2.5 wide:mt-[1.2em] wide:mb-[1.1em] wide:gap-[.5em] [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:text-center [&>div]:text-[13px] [&>div]:leading-[1.17] desktop:[&>div]:text-[11px] tablet:[&>div]:text-[max(12px,1.35vw)] max-[23.75rem]:gap-1.75">
+          {productFeatures.map(({ image, alt, lines, imageClass }) => (
+            <div key={image}>
+              <div className="relative mb-2.5 h-20 w-full max-w-22 overflow-hidden desktop:h-18 desktop:max-w-20 tablet:h-21 tablet:max-w-23 min-[71.9375rem]:h-[clamp(82px,6.65vw,109px)] min-[71.9375rem]:max-w-[clamp(90px,7.4vw,120px)] wide:mb-[.5em] max-[23.75rem]:h-18 max-[23.75rem]:max-w-19">
+                <Image
+                  src={image}
+                  alt={alt}
+                  fill
+                  unoptimized
+                  sizes="(min-width: 1151px) 7.4vw, (min-width: 768px) 92px, 88px"
+                  className={imageClass}
+                />
+              </div>
+              <span>
+                {lines[0]}
+                <br />
+                {lines[1]}
+              </span>
             </div>
           ))}
         </div>

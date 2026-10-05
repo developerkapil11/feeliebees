@@ -8,7 +8,7 @@ export default function Blogs() {
     const router = useRouter()
     return (
         <section
-        className="blog-section relative bg-[#fcf8ee] px-[6%] pt-7 pb-8.75 desktop:pt-5 desktop:pb-6 tablet:pt-[1.8%] tablet:pb-[2.6%]"
+        className="blog-section relative bg-cream px-[6%] pt-7 pb-8.75 desktop:pt-5 desktop:pb-6 tablet:pt-[1.8%] tablet:pb-[2.6%]"
         id="blog"
         aria-labelledby="blog-title"
         >

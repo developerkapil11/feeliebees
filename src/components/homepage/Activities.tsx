@@ -12,28 +12,16 @@ export default function Activities({ src }: { src: string }) {
   const router = useRouter();
   return (
     <section
-      className="activities-section relative flex flex-col overflow-hidden bg-cream desktop:grid desktop:min-h-110 desktop:grid-cols-1"
+      className="activities-section relative flex flex-col overflow-hidden bg-[#fff3dc] desktop:grid desktop:min-h-110 desktop:grid-cols-[42%_58%]"
       id="activities"
       aria-labelledby="activities-title"
     >
-      <Image
-        src={src}
-        unoptimized
-        alt="Heartly, fox family and woodland friends celebrating in a flower-filled meadow"
-        width={1958}
-        height={803}
-        sizes="100vw"
-        className="section-art pointer-events-none relative order-2 block h-auto w-full self-center desktop:col-start-1 desktop:row-start-1 desktop:h-full desktop:self-stretch desktop:object-cover"
-      />
-      <div className="activities-copy relative z-1 order-1 w-full px-[5%] pt-6.75 pb-6 text-left desktop:col-start-1 desktop:row-start-1 desktop:w-[50%] desktop:self-center desktop:py-[3vw] desktop:pr-[6%] desktop:pl-[6%] desktop:text-left [&>h2]:text-[37px] tablet:[&>h2]:text-[max(39px,4.4vw)] [&_.doodle-heart]:ml-2.25 [&_.doodle-heart]:text-[.65em] [&>p]:mx-0 [&>p]:mt-3 [&>p]:mb-4.25 [&>p]:max-w-87.5 [&>p]:text-[13px] [&>p]:leading-[1.3] desktop:[&>p]:mx-0 desktop:[&>p]:mt-2.5 desktop:[&>p]:mb-4 desktop:[&>p]:max-w-none desktop:[&>p]:text-[11px] tablet:[&>p]:text-[max(13px,1.35vw)] wide:[&>p]:mt-[.5em] wide:[&>p]:mb-[.8em] [&>.button]:min-h-11.75 [&>.button]:min-w-66.25 [&>.button]:text-sm desktop:[&>.button]:min-h-10.5 desktop:[&>.button]:min-w-56.25 desktop:[&>.button]:text-[13px] tablet:[&>.button]:min-h-11.75 tablet:[&>.button]:min-w-60 tablet:[&>.button]:text-[max(14px,1.45vw)] min-[71.9375rem]:[&>.button]:min-h-13 min-[71.9375rem]:[&>.button]:min-w-75 wide:[&>.button]:min-h-[2.6em] wide:[&>.button]:min-w-[14.4em]">
+      <div className="activities-copy relative z-1 order-1 w-full px-[6%] pt-9 pb-6 text-left desktop:col-start-1 desktop:row-start-1 desktop:self-center desktop:py-[5vw] desktop:pr-[4%] desktop:pl-[14%] [&>h2]:text-[37px] tablet:[&>h2]:text-[max(39px,4.4vw)] [&_.doodle-heart]:ml-2.25 [&_.doodle-heart]:text-[.65em] [&>p]:mx-0 [&>p]:mt-3 [&>p]:mb-4.25 [&>p]:max-w-87.5 [&>p]:text-[13px] [&>p]:leading-[1.3] desktop:[&>p]:mt-2.5 desktop:[&>p]:mb-4 desktop:[&>p]:max-w-none desktop:[&>p]:text-[11px] tablet:[&>p]:text-[max(13px,1.35vw)] wide:[&>p]:mt-[.5em] wide:[&>p]:mb-[.8em] [&>.button]:min-h-11.75 [&>.button]:min-w-66.25 [&>.button]:text-sm desktop:[&>.button]:min-h-10.5 desktop:[&>.button]:min-w-56.25 desktop:[&>.button]:text-[13px] tablet:[&>.button]:min-h-11.75 tablet:[&>.button]:min-w-60 tablet:[&>.button]:text-[max(14px,1.45vw)] min-[71.9375rem]:[&>.button]:min-h-13 min-[71.9375rem]:[&>.button]:min-w-75 wide:[&>.button]:min-h-[2.6em] wide:[&>.button]:min-w-[14.4em]">
         <h2 id="activities-title">
           Free Activities <DoodleHeart />
         </h2>
         <p>
           Explore free printable activities that invite children and grownups to play, create, and talk about feelings together.
-        </p>
-        <p>
-          Please adjust the text layout so that line breaks feel natural, without leaving a single word on its own line.
         </p>
         <button
           className={`button ${buttonStyles.base} ${buttonStyles.orange}`}
@@ -41,6 +29,24 @@ export default function Activities({ src }: { src: string }) {
         >
           Explore Free Activities <ArrowRight />
         </button>
+      </div>
+      <div className="relative order-2 min-h-77 px-[5%] pt-4 pb-8 desktop:col-start-2 desktop:row-start-1 desktop:min-h-110 desktop:self-center desktop:px-[5%] desktop:py-[7%]">
+        <Image
+          src={src}
+          alt="Two FeelieBees woodland coloring sheets displayed side by side"
+          width={634}
+          height={442}
+          sizes="(max-width: 700px) 90vw, 48vw"
+          className="relative z-1 mx-auto w-[92%] rounded-md border border-[#eadfc8] shadow-[0_16px_35px_#8b68352b] desktop:mr-[8%] desktop:w-[86%]"
+        />
+        <Image
+          src="/assets/homepage/colored-pencils.png"
+          alt="A colorful set of pencils in a wooden holder"
+          width={1200}
+          height={1200}
+          sizes="(max-width: 700px) 35vw, 18vw"
+          className="pointer-events-none absolute right-[1%] bottom-1 z-2 w-[32%] drop-shadow-[0_10px_12px_#72572b26] desktop:right-[1%] desktop:bottom-[2%] desktop:w-[30%]"
+        />
       </div>
     </section>
   );

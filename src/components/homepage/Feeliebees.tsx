@@ -12,12 +12,12 @@ import Blogs from "./Blogs";
 export default function FeelieBees() {
   return (
     <main id="main">
-        <Hero src="/assets/homepage/hero-meadow.png" />
+        <Hero src="/assets/homepage/hero-foxes-butterflies.png" />
         <Product src="/assets/homepage/heartly-sunlit-meadow.webp" />
-        <OurStory src="/assets/homepage/story-mirrored-family.webp" />
+        <OurStory src="/assets/homepage/meet-feeliebees-celebration.png" />
         {/* <Adventure src="/assets/homepage/adventure-dreamy-foxes.webp" />
         <Help src="/assets/homepage/benefits-foxes-butterflies.webp" /> */}
-        <Activities src="/assets/homepage/activities-woodland-meadow.webp" />
+        <Activities src="/assets/homepage/coloring-sheets.jpeg" />
         <Blogs />
         {/* <LetsTalk /> */}
     </main>
