@@ -20,38 +20,38 @@ const introArt: Record<
   { src: string; mobileSrc: string; align: "left" | "center" }
 > = {
   story: {
-    src: "/assets/story-mirrored-family.webp",
-    mobileSrc: "/assets/story-family-mobile.png",
+    src: "/assets/hero-banners/story-mirrored-family.webp",
+    mobileSrc: "/assets/hero-banners/story-family-mobile.png",
     align: "center",
   },
   shop: {
-    src: "/assets/heartly-sunlit-meadow.webp",
-    mobileSrc: "/assets/activities-fox-forest-mobile.png",
+    src: "/assets/hero-banners/heartly-sunlit-meadow.webp",
+    mobileSrc: "/assets/hero-banners/activities-fox-forest-mobile.png",
     align: "left",
   },
   activities: {
-    src: "/assets/activities-woodland-meadow.webp",
-    mobileSrc: "/assets/free-activities-woodland-mobile.png",
+    src: "/assets/hero-banners/activities-woodland-meadow.webp",
+    mobileSrc: "/assets/hero-banners/free-activities-woodland-mobile.png",
     align: "left",
   },
   blog: {
-    src: "/assets/adventure-dreamy-foxes.webp",
-    mobileSrc: "/assets/adventure-fox-meadow-mobile.png",
+    src: "/assets/hero-banners/adventure-dreamy-foxes.webp",
+    mobileSrc: "/assets/hero-banners/adventure-fox-meadow-mobile.png",
     align: "center",
   },
   faq: {
-    src: "/assets/benefits-foxes-butterflies.webp",
-    mobileSrc: "/assets/benefits-foxes-butterflies-mobile.png",
+    src: "/assets/hero-banners/benefits-foxes-butterflies.webp",
+    mobileSrc: "/assets/hero-banners/benefits-foxes-butterflies-mobile.png",
     align: "left",
   },
   contact: {
-    src: "/assets/story-mirrored-family.webp",
-    mobileSrc: "/assets/footer-fox-meadow-mobile.png",
+    src: "/assets/hero-banners/story-mirrored-family.webp",
+    mobileSrc: "/assets/hero-banners/footer-fox-meadow-mobile.png",
     align: "center",
   },
   privacy: {
-    src: "/assets/benefits-foxes-butterflies.webp",
-    mobileSrc: "/assets/benefits-foxes-butterflies-mobile.png",
+    src: "/assets/hero-banners/benefits-foxes-butterflies.webp",
+    mobileSrc: "/assets/hero-banners/benefits-foxes-butterflies-mobile.png",
     align: "left",
   },
 };
@@ -126,7 +126,7 @@ export function TogetherBanner() {
   return (
     <section className="relative grid overflow-hidden border-y border-white bg-[#e5f6f9]">
       <Image
-        src="/assets/story-family-mobile.png"
+        src="/assets/hero-banners/story-family-mobile.png"
         alt="Fox families sharing a cozy moment together"
         width={1024}
         height={1536}
@@ -134,7 +134,7 @@ export function TogetherBanner() {
         className="col-start-1 row-start-1 aspect-square w-full self-end object-cover object-center opacity-35 tablet:hidden"
       />
       <Image
-        src="/assets/story-mirrored-family.webp"
+        src="/assets/hero-banners/story-mirrored-family.webp"
         alt=""
         width={2048}
         height={768}

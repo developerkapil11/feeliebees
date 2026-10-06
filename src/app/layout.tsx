@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   ),
   title: "FeelieBees | Little hearts. Big feelings.",
   description:
-    "Help little hearts understand big feelings. Meet Heartly and explore playful stories, feelings cards, and free activities for children ages 3–7.",
+    "Help little hearts understand big feelings. Meet Heartly and explore playful stories, feelings cards, and free activities for children.",
   icons: { icon: "/bees.jpg" },
 };
 
