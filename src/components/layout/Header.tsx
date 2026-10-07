@@ -51,13 +51,6 @@ export function Header() {
   );
   return (
     <>
-      <a
-        href="#main"
-        className="fixed -top-24 left-4 z-50 rounded-xl bg-[#eff2df] px-5 py-3 focus:top-3"
-      >
-        Skip to content
-      </a>
-      {/* The floating navigation overlays the hero banner on every page. */}
       <div className="relative z-50 h-0">
         <header
           id="home"
@@ -106,24 +99,6 @@ export function Header() {
               >
                 <Search className="size-[max(21px,1.5vw)]" />
               </button>
-              <Link
-                className={headerClasses("v2-header-cta")}
-                href="/shop/heartlys-pocket-of-feelings"
-              >
-                Explore Heartly{" "}
-                <span
-                  aria-hidden="true"
-                  className={headerClasses("v2-feature-icon v2-inline-icon")}
-                >
-                  <Image
-                    src="/assets/illustrated-icons/heart.webp"
-                    alt=""
-                    width={256}
-                    height={256}
-                    unoptimized
-                  />
-                </span>
-              </Link>
               <button
                 aria-label={menu ? "Close navigation" : "Open navigation"}
                 aria-expanded={menu}

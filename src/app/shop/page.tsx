@@ -55,7 +55,7 @@ export default function ShopPage() {
           {products.map((product) => (
             <article
               key={product.slug}
-              className={`overflow-hidden rounded-[2rem] border border-[#ece4d4] bg-white shadow-[0_10px_40px_#08296508] ${products.length === 1 ? "tablet:grid tablet:grid-cols-[1.12fr_1fr]" : ""}`}
+              className={`overflow-hidden rounded-4xl border border-[#ece4d4] bg-white shadow-[0_10px_40px_#08296508] ${products.length === 1 ? "tablet:grid tablet:grid-cols-[1.12fr_1fr]" : ""}`}
             >
               <Link
                 href={`/shop/${product.slug}`}
@@ -78,7 +78,7 @@ export default function ShopPage() {
                 <p className="mb-4 text-[max(12px,.9vw)] font-black tracking-widest text-[#438451] uppercase">
                   {product.category}
                 </p>
-                <h3 className="font-display text-[max(34px,3.3vw)]! leading-[1.05]! tracking-[-.025em]">
+                <h3 className="font-display text-[max(34px,3.3vw)]! leading-[1.05]! tracking-tight">
                   <Link href={`/shop/${product.slug}`}>{product.name}</Link>
                 </h3>
                 <p className="mt-5 text-[max(15px,1.15vw)] leading-relaxed">
