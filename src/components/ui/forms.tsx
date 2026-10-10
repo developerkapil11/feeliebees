@@ -209,11 +209,6 @@ export function ContactForm() {
       aria-busy={state === "sending"}
     >
       <Honeypot />
-      {site.demo && (
-        <p className="rounded-xl bg-[#fff1cf] p-3 text-[max(12px,.9vw)]">
-          Demo form — try it out. Your message won’t be sent or saved.
-        </p>
-      )}
       <div className="grid gap-5 tablet:grid-cols-2">
         <label className="block text-[max(14px,1.05vw)] font-extrabold">
           Your name

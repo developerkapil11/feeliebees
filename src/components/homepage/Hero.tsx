@@ -49,7 +49,7 @@ export default function Hero({ src }: { src: string }) {
         className="section-art pointer-events-none absolute inset-0 z-0 h-full w-full object-cover desktop:relative desktop:inset-auto desktop:col-start-1 desktop:row-start-1 desktop:block desktop:h-auto desktop:object-contain hero-art max-desktop:top-auto max-desktop:bottom-0 max-desktop:left-[-70%] max-desktop:h-85 max-desktop:w-[170%] max-desktop:max-w-none max-desktop:object-right"
       />
       <div className="hero-inner relative px-[6%] pt-31.25 desktop:col-start-1 desktop:row-start-1 desktop:z-1 desktop:pt-30 desktop:pr-0 desktop:pl-[9%] min-[71.9375rem]:pt-[clamp(125px,8.5vw,165px)] min-[71.9375rem]:pl-[10%] max-[23.75rem]:px-[5%]">
-        <div className="hero-copy relative z-1 w-full desktop:w-[47%] tablet:w-[46%] min-[71.9375rem]:w-[44%]">
+        <div className="hero-copy relative z-1 w-full desktop:w-[47%] tablet:w-[46%] min-[71.9375rem]:w-[43%]">
           <p className="eyebrow mb-3 text-center text-[10px] font-[850] tracking-[.015em] uppercase desktop:mb-2.75 desktop:text-left tablet:text-[max(10px,1.17vw)] wide:mb-[.65em]">
             Helping little hearts understand big feelings
           </p>
@@ -64,7 +64,7 @@ export default function Hero({ src }: { src: string }) {
               className={`button ${buttonStyles.base} ${buttonStyles.orange}`}
               href="/shop"
             >
-              Discover Heartly’s Pocket of Feelings <ArrowRight />
+              Meet Heartly <ArrowRight />
             </Link>
             <AmazonButton />
           </div>

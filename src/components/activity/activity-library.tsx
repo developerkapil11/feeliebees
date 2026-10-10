@@ -1,129 +1,111 @@
 "use client";
 
 import Image from "next/image";
-import { Download, Mail } from "lucide-react";
 import { useState } from "react";
-
+import { Download, Mail, Search, X } from "lucide-react";
 import { activities } from "@/content/activities";
 import { primaryButton } from "@/components/ui/page-ui";
 import { Dialog } from "@/components/ui/dialog";
 import { ActivityRequestForm } from "@/components/ui/forms";
 
 export function ActivityLibrary() {
-  const [selected, setSelected] = useState<
-    (typeof activities)[number] | null
-  >(null);
-
-  const activity = activities[0];
-
-  if (!activity) return null;
-
+  const [filter, setFilter] = useState("All activities");
+  const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState<(typeof activities)[number] | null>(
+    null
+  );
+  const filtered = activities.filter(
+    (activity) =>
+      (filter === "All activities" || activity.category === filter) &&
+      `${activity.title} ${activity.description}`
+        .toLowerCase()
+        .includes(query.toLowerCase())
+  );
   return (
     <>
-      <section className="mx-auto w-full max-w-6xl px-4 tablet:px-0">
-        <article className="group overflow-hidden rounded-[2.5rem] border border-[#eadfce] bg-white shadow-[0_18px_55px_rgba(40,65,40,0.08)]">
-          <div className="grid tablet:grid-cols-[1fr_1fr]">
-            {/* =========================
-                LEFT - ACTIVITY PREVIEW
-            ========================== */}
-            <div className="relative flex min-h-[430px] items-center justify-center overflow-hidden bg-[#fff0d5] px-8 py-12 tablet:min-h-[560px] tablet:px-12">
-              {/* Decorative background shapes */}
-              <div className="absolute -left-16 -top-16 h-48 w-48 rounded-full bg-white/50" />
-
-              <div className="absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-white/50" />
-
-              <div className="absolute left-8 top-8 z-20 rounded-full bg-white px-4 py-2 text-xs font-extrabold tracking-wide text-[#4d604c] shadow-[0_4px_12px_rgba(0,0,0,0.06)]">
-                FREE ACTIVITY
-              </div>
-
-              {/* Preview */}
-              <div className="relative z-10 w-full max-w-[390px]">
-                <Image
-                  src={activity.preview}
-                  alt={`${activity.title} printable preview`}
-                  width={794}
-                  height={1123}
-                  sizes="(max-width: 900px) 80vw, 390px"
-                  className="mx-auto h-auto w-full -rotate-2 rounded-xl bg-white p-2 shadow-[0_22px_45px_rgba(40,40,20,0.16)] transition duration-500 group-hover:rotate-0 group-hover:scale-[1.02]"
-                />
-              </div>
-            </div>
-
-            {/* =========================
-                RIGHT - CONTENT
-            ========================== */}
-            <div className="flex flex-col justify-center px-8 py-10 tablet:px-12 tablet:py-14">
-              {/* Category */}
-              <span className="mb-5 inline-flex w-fit rounded-full bg-[#edf5e9] px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-[#4d855a]">
-                {activity.category}
+      <p className="mb-5 text-[max(12px,.9vw)] text-[#657365]" role="status">
+        {filtered.length} {filtered.length === 1 ? "activity" : "activities"} to
+        explore · Free A4 PDFs
+      </p>
+      <div className="grid items-stretch gap-6 sm:grid-cols-2 tablet:grid-cols-3">
+        {filtered.map((activity) => (
+          <article
+            key={activity.id}
+            className="flex flex-col overflow-hidden rounded-3xl border border-[#e8e1d2] bg-white shadow-[0_8px_30px_#08296505]"
+          >
+            <div
+              className={`relative p-7 ${
+                activity.id === "feelings"
+                  ? "bg-[#e6f4ef]"
+                  : activity.id === "colouring"
+                  ? "bg-[#fff0d5]"
+                  : "bg-[#fce4e8]"
+              }`}
+            >
+              <Image
+                src={activity.preview}
+                alt={`${activity.title} printable preview`}
+                width={794}
+                height={1123}
+                sizes="(max-width: 900px) 80vw, 30vw"
+                className="mx-auto h-auto w-[75%] -rotate-3 rounded-md shadow-md transition duration-300 hover:rotate-0"
+              />
+              <span className="absolute top-4 right-4 rounded-full bg-white px-3 py-1.5 text-[max(10px,.75vw)] font-black">
+                {activity.access === "direct"
+                  ? "INSTANT DOWNLOAD"
+                  : "SENT BY EMAIL"}
               </span>
-
-              {/* Title */}
-              <h2 className="max-w-xl text-[34px] leading-[1.08] text-[#243524] tablet:text-[46px]">
-                {activity.title}
-              </h2>
-
-              {/* Description */}
-              <p className="mt-5 max-w-xl text-[16px] leading-7 text-[#657365] tablet:text-[17px]">
+            </div>
+            <div className="flex flex-1 flex-col p-6 tablet:p-[2vw]">
+              <p className="text-[max(11px,.85vw)] font-extrabold text-[#4d855a]">
+                {activity.category}
+              </p>
+              <h3 className="mt-3 text-[max(23px,1.9vw)]">{activity.title}</h3>
+              <p className="mt-3 mb-6 flex-1 text-[max(14px,1.05vw)] leading-relaxed">
                 {activity.description}
               </p>
-
-              {/* CTA */}
-              <div className="mt-8">
-                {activity.access === "direct" ? (
-                  <a
-                    href={activity.file!}
-                    download
-                    className={`${primaryButton} flex w-full items-center justify-center gap-2`}
-                  >
-                    Download Free PDF
-                    <Download size={19} />
-                  </a>
-                ) : (
-                  <button
-                    className={`${primaryButton} flex w-full items-center justify-center gap-2`}
-                    onClick={() => setSelected(activity)}
-                  >
-                    Email Me This Activity
-                    <Mail size={19} />
-                  </button>
-                )}
-              </div>
-
-              {/* Benefits */}
-              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-[#788276]">
-                <span className="flex items-center gap-1.5">
-                  <span className="font-bold text-[#6d8c70]">✓</span>
-                  Free printable PDF
-                </span>
-
-                <span className="flex items-center gap-1.5">
-                  <span className="font-bold text-[#6d8c70]">✓</span>
-                  Child-friendly
-                </span>
-
-                <span className="flex items-center gap-1.5">
-                  <span className="font-bold text-[#6d8c70]">✓</span>
-                  A4 printable
-                </span>
-              </div>
+              {activity.access === "direct" ? (
+                <a href={activity.file!} download className={primaryButton}>
+                  Download PDF <Download />
+                </a>
+              ) : (
+                <button
+                  className={primaryButton}
+                  onClick={() => setSelected(activity)}
+                >
+                  Email me this activity <Mail />
+                </button>
+              )}
             </div>
-          </div>
-        </article>
-      </section>
-
-      {/* Email dialog */}
+          </article>
+        ))}
+      </div>
+      {!filtered.length && (
+        <div className="rounded-3xl border border-dashed border-[#cdd5c3] p-12 text-center">
+          <h3 className="text-2xl">No little matches just yet.</h3>
+          <p className="mt-3">
+            Try a different word or explore all the activities.
+          </p>
+          <button
+            className={`${primaryButton} mt-6`}
+            onClick={() => {
+              setQuery("");
+              setFilter("All activities");
+            }}
+          >
+            Clear filters <X />
+          </button>
+        </div>
+      )}
       {selected && (
         <Dialog
           title="A little kindness, delivered."
           close={() => setSelected(null)}
         >
-          <p className="mb-5 text-base leading-relaxed text-[#657365]">
-            Enter your email and we’ll send{" "}
-            <strong className="text-[#243524]">{selected.title}</strong> as a
-            ready-to-print PDF.
+          <p className="mb-5 text-base leading-relaxed">
+            Enter your email and we’ll send <strong>{selected.title}</strong> as
+            a ready-to-print PDF.
           </p>
-
           <ActivityRequestForm activityId={selected.id} />
         </Dialog>
       )}

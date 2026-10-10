@@ -41,16 +41,31 @@ export default function Product({ src }: { src: string }) {
         <span className="eyebrow mb-3 text-center text-[10px] font-[850] tracking-[.015em] uppercase desktop:mb-2.75 desktop:text-left tablet:text-[max(10px,1.17vw)] wide:mb-[.65em]">
           Discover Our Signature Gift Set 
         </span>
-        <h2 id="product-title">
+        <h2 id="product-title" className="text-button-orange">
           Heartly’s
           <br />
           Pocket of Feelings
         </h2>
         <p>
         A playful gift set that makes talking about feelings easier, more natural, and more fun.
-        How It Works- Read Heartly’s story, choose a feeling heart from his pocket, and place it on his chest to share how you feel. Explore the matching emotion card together to keep the conversation going.
- 
         </p>
+        <div className="mt-2">
+        <p className="font-semibold">How It Works:-</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li className="font-semibold">
+              Read Heartly’s story.
+            </li>
+            <li className="font-semibold">
+              Choose a feeling heart from his pocket.
+            </li>
+            <li className="font-semibold">
+              Place it on his chest to share how you feel.
+            </li>
+            <li className="font-semibold">
+              Explore the matching emotion card together to keep the conversation going.
+            </li>
+          </ul>
+        </div>
         <div className="product-features mx-auto my-6 grid max-w-95 grid-cols-4 gap-3 desktop:mx-0 desktop:my-4.5 desktop:max-w-none desktop:gap-1 tablet:gap-1.5 min-[71.9375rem]:mt-6 min-[71.9375rem]:mb-5.5 min-[71.9375rem]:gap-2.5 wide:mt-[1.2em] wide:mb-[1.1em] wide:gap-[.5em] [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:text-center [&>div]:text-[13px] [&>div]:leading-[1.17] desktop:[&>div]:text-[11px] tablet:[&>div]:text-[max(12px,1.35vw)] max-[23.75rem]:gap-1.75">
           {productFeatures.map(({ image, alt, lines, imageClass }) => (
             <div key={image}>

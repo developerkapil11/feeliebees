@@ -32,20 +32,12 @@ export default function Activities({ src }: { src: string }) {
       </div>
       <div className="relative order-2 min-h-77 px-[5%] pt-4 pb-8 desktop:col-start-2 desktop:row-start-1 desktop:min-h-110 desktop:self-center desktop:px-[5%] desktop:py-[7%]">
         <Image
-          src={src}
-          alt="Two FeelieBees woodland coloring sheets displayed side by side"
-          width={634}
-          height={442}
-          sizes="(max-width: 700px) 90vw, 48vw"
-          className="relative z-1 mx-auto w-[92%] rounded-md border border-[#eadfc8] shadow-[0_16px_35px_#8b68352b] desktop:mr-[8%] desktop:w-[86%]"
-        />
-        <Image
-          src="/assets/homepage/colored-pencils.png"
-          alt="A colorful set of pencils in a wooden holder"
-          width={1200}
+          src="/assets/homepage/activity_img_pencils.png"
+          alt="Two woodland coloring sheets with colored pencils"
+          width={1664}
           height={1200}
-          sizes="(max-width: 700px) 35vw, 18vw"
-          className="pointer-events-none absolute right-[1%] bottom-1 z-2 w-[32%] drop-shadow-[0_10px_12px_#72572b26] desktop:right-[1%] desktop:bottom-[2%] desktop:w-[30%]"
+          sizes="(max-width: 700px) 90vw, 48vw"
+          className="relative z-1 mx-auto w-[92%] desktop:mr-[8%] desktop:w-[86%]"
         />
       </div>
     </section>

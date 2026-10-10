@@ -21,7 +21,7 @@ export default function OurStory({ src }: { src: string }) {
 
       <div className="relative z-10 flex items-center gap-1">
         <span
-          className="relative z-10 block h-6 w-6 shrink-0 desktop:h-8 desktop:w-8"
+          className="relative z-10 block h-6 w-6 shrink-0 desktop:h-12 desktop:w-12"
           aria-hidden="true"
         >
           <Image
@@ -35,7 +35,7 @@ export default function OurStory({ src }: { src: string }) {
           />
         </span>
 
-        <h2 id="story-title">
+        <h2 id="story-title" className="text-button-orange">
           Meet FeelieBees
         </h2>
       </div>
