@@ -30,8 +30,8 @@ const introArt: Record<
     align: "left",
   },
   activities: {
-    src: "/assets/hero-banners/activities-woodland-meadow.webp",
-    mobileSrc: "/assets/hero-banners/free-activities-woodland-mobile.png",
+    src: "/assets/hero-banners/heartly-sunlit-meadow.webp",
+    mobileSrc: "/assets/hero-banners/activities-fox-forest-mobile.png",
     align: "left",
   },
   blog: {
@@ -72,7 +72,7 @@ export function PageIntro({
   children,
   art,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   children: ReactNode;
   art?: PageIntroArt;
@@ -104,7 +104,6 @@ export function PageIntro({
         className={`relative z-2 col-start-1 row-start-1 mx-auto flex w-[88%] flex-col justify-center py-10 tablet:py-[3vw] ${leftAligned ? "items-center text-center tablet:items-start tablet:text-left" : "items-center text-center"}`}
       >
         <p className="mb-4 flex items-center gap-2 text-[max(11px,.85vw)] font-black tracking-[.15em] text-[#398357] uppercase">
-          <Emblem type="heart" className="size-5!" />
           {eyebrow}
         </p>
         <h1

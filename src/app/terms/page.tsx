@@ -25,11 +25,10 @@ export default function TermsPage() {
         className="
           mx-auto
           w-[88%]
-          max-w-[900px]
+          max-w-225
           py-12
           text-[max(16px,1.05vw)]
           leading-relaxed
-
           tablet:py-[5vw]
         "
       >

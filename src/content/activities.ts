@@ -1,9 +1,10 @@
+
 export const activities = [
   {
     id: "feelings",
     title: "My Feelings Check-In",
     category: "Feelings",
-    access: "direct",
+    access: "email",
     description:
       "Pause, pick a feelings face, and draw what’s in your heart. A gentle way to start a conversation.",
     preview: "/activities/feelings-preview.webp",
@@ -13,7 +14,7 @@ export const activities = [
     id: "colouring",
     title: "Colour with Heartly",
     category: "Colouring",
-    access: "direct",
+    access: "email",
     description:
       "Grab your favourite crayons and bring our little fox’s world to life, one happy colour at a time.",
     preview: "/activities/colouring-preview.webp",
@@ -27,6 +28,6 @@ export const activities = [
     description:
       "Seven small ways to brighten someone’s day, with space to dream up a kind idea of your own.",
     preview: "/activities/kindness-preview.webp",
-    file: null,
+    file: "/activities/kindness.pdf",
   },
 ] as const;

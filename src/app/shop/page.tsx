@@ -1,171 +1,340 @@
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Gift } from "lucide-react";
-import { Emblem } from "@/components/ui/brand";
+import { ExternalLink } from "lucide-react";
+import { notFound } from "next/navigation";
+
 import { products } from "@/lib/content";
 import { site } from "@/lib/site";
-import {
-  PageIntro,
-  pageWidth,
-  amazonButton,
-  TogetherBanner,
-} from "@/components/ui/page-ui";
+import { pageWidth, amazonButton } from "@/components/ui/page-ui";
 
 export const metadata: Metadata = {
-  title: "Shop | FeelieBees",
+  title: "Heartly’s Pocket of Feelings | FeelieBees",
   description:
-    "Meet Heartly’s Pocket of Feelings: a storybook, plush fox, nine feeling hearts and nine emotion cards for children. Available through Amazon.",
+    "A playful emotional learning kit that helps children understand, express, and share their feelings. Discover Heartly’s plush fox, storybook, feeling hearts, and emotion cards.",
 };
 
+const LEARN_MORE_URL =
+  "/blog";
+
+const VIDEO_URL =
+  process.env.NEXT_PUBLIC_HEARTLY_VIDEO_URL || "";
+
+const productFeatures = [
+  {
+    title: "1 Heartly Plush",
+    description:
+      "A soft and cuddly fox friend with a special pocket for feelings, helping children share their emotions through imaginative play.",
+    image: "/assets/product-icons/fox-plush-cutout.png",
+    alt: "Heartly plush fox companion",
+  },
+  {
+    title: "9 Feeling Hearts",
+    description:
+      "Children can choose the heart that best matches how they feel and place it on Heartly’s chest.",
+    image: "/assets/product-icons/feeling-hearts-sheet.png",
+    alt: "Nine illustrated feeling hearts",
+  },
+  {
+    title: "1 Storybook",
+    description:
+      "A heartwarming story designed to help children understand, name, and share their emotions.",
+    image: "/assets/product-icons/story-book-cutout.png",
+    alt: "Heartly’s Pocket of Feelings storybook",
+  },
+  {
+    title: "9 Emotion Cards",
+    description:
+      "Each card explores a feeling and offers simple, child-friendly ways to respond, reminding children that every feeling is welcome.",
+    image: "/assets/product-icons/emotion-cards-fan.png",
+    alt: "Nine Heartly emotion cards",
+  },
+];
+
+const steps = [
+  "Read Heartly’s story.",
+  "Choose a feeling heart from his pocket.",
+  "Place it on his chest to share how you feel.",
+  "Explore the matching emotion card together to keep the conversation going.",
+];
+
+const benefits = [
+  "Meaningful Conversations",
+  "Confidence & Self-Awareness",
+  "Self-Expression",
+  "Empathy & Connection",
+  "Healthy Coping Skills",
+];
+
 export default function ShopPage() {
+  const product = products.find(
+    (item) => item.slug === "heartlys-pocket-of-feelings"
+  );
+
+  if (!product) {
+    notFound();
+  }
+
+  const amazonUrl = product.amazonUrl || site.amazon;
+
   return (
     <main id="main">
-      <PageIntro
-        eyebrow="Thoughtful gifts for growing hearts"
-        title="Little gifts. Big feelings."
+      {/* 1. HERO — Warm cream */}
+      <section
+        className="bg-[#fff8eb] py-12 tablet:py-20"
+        aria-labelledby="product-title"
       >
-        <p>
-          Playful companions for everyday emotions. Discover a little world of
-          stories, cuddles, and connection.
-        </p>
-      </PageIntro>
-      <section className={pageWidth} aria-labelledby="collection-title">
-        <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="mb-2 text-[max(12px,.9vw)] font-black tracking-widest text-[#438451] uppercase">
-              The FeelieBees collection
-            </p>
-            <h2 id="collection-title" className="text-[max(32px,2.8vw)]">
-              Made for little hearts
-            </h2>
-          </div>
-          <span className="rounded-full bg-[#eeeede] px-4 py-2 text-[max(12px,.95vw)]">
-            {products.length}{" "}
-            {products.length === 1 ? "thoughtful gift" : "thoughtful gifts"}
-          </span>
-        </div>
         <div
-          className={
-            products.length === 1
-              ? "grid gap-8"
-              : "grid gap-8 tablet:grid-cols-2"
-          }
+          className={`${pageWidth} grid items-center gap-10 tablet:grid-cols-2 tablet:gap-16`}
         >
-          {products.map((product) => (
-            <article
-              key={product.slug}
-              className={`overflow-hidden rounded-4xl border border-[#ece4d4] bg-white shadow-[0_10px_40px_#08296508] ${products.length === 1 ? "tablet:grid tablet:grid-cols-[1.12fr_1fr]" : ""}`}
+          <div>
+            <h1
+              id="product-title"
+              className="font-display text-4xl font-extrabold leading-tight tracking-tight tablet:text-6xl"
             >
-              <Link
-                href={`/shop/${product.slug}`}
-                className="relative block self-center overflow-hidden bg-[#fff2db]"
+              Heartly’s Pocket of Feelings
+            </h1>
+
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#526257]">
+              A playful emotional learning kit that helps children
+              understand, express, and share their feelings.
+            </p>
+
+            <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#e5d8b8] bg-white px-4 py-2">
+              <span
+                aria-label="Suitable for ages three and up"
+                className="flex size-10 items-center justify-center rounded-full bg-[#438451] font-extrabold text-white"
               >
-                <Image
-                  src={product.image}
-                  alt={`${product.name} gift set with a plush fox, book, feeling hearts and emotion cards`}
-                  width={1536}
-                  height={1024}
-                  sizes="(max-width: 900px) 100vw, 50vw"
-                  priority
-                  className="h-auto w-full transition duration-500 hover:scale-[1.02]"
-                />
-                <span className="absolute top-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-[max(12px,.9vw)] font-extrabold">
-                  <Gift size={17} /> A gift full of feelings
-                </span>
-              </Link>
-              <div className="flex flex-col justify-center p-6 tablet:p-[3vw]">
-                <p className="mb-4 text-[max(12px,.9vw)] font-black tracking-widest text-[#438451] uppercase">
-                  {product.category}
-                </p>
-                <h3 className="font-display text-[max(34px,3.3vw)]! leading-[1.05]! tracking-tight">
-                  <Link href={`/shop/${product.slug}`}>{product.name}</Link>
-                </h3>
-                <p className="mt-5 text-[max(15px,1.15vw)] leading-relaxed">
-                  {product.description}
-                </p>
-                <ul className="my-6 grid gap-2.5 text-[max(14px,1.05vw)]">
-                  {product.contents.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <Emblem type="heart" className="size-[1.2em]!" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap items-center gap-5">
-                  <a
-                    href={product.amazonUrl || site.amazon}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={amazonButton}
-                  >
-                    Buy on Amazon <ExternalLink />
-                  </a>
-                  <Link
-                    href={`/shop/${product.slug}`}
-                    className="inline-flex items-center gap-2 text-[max(14px,1vw)] font-extrabold hover:text-orange"
-                  >
-                    Meet the set <ArrowRight size={18} />
-                  </Link>
-                </div>
-                <p className="mt-4 text-[max(11px,.85vw)] text-[#65706c]">
-                  See Amazon for pricing, availability, and delivery.
-                </p>
-              </div>
-            </article>
-          ))}
+                3+
+              </span>
+
+              <span className="font-bold text-[#354d3b]">
+                Made for little learners
+              </span>
+            </div>
+
+            <div className="mt-8">
+              <a
+                href={amazonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={amazonButton}
+              >
+                Buy on Amazon <ExternalLink size={18} />
+              </a>
+            </div>
+
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-[#65706c]">
+              Check Amazon for pricing, availability, and delivery.
+              Your purchase, payment, and delivery are handled by Amazon.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-4xl bg-[#f4e6cd] shadow-sm">
+            {VIDEO_URL ? (
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                poster={product.image}
+                className="aspect-4/3 w-full object-cover"
+                aria-label="Heartly’s Pocket of Feelings product video"
+              >
+                <source src={VIDEO_URL} type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+            ) : (
+              <Image
+                src={product.image}
+                alt={`${product.name} complete set`}
+                width={1536}
+                height={1024}
+                priority
+                sizes="(max-width: 900px) 100vw, 50vw"
+                className="aspect-4/3 w-full object-cover transition duration-500 hover:scale-[1.02]"
+              />
+            )}
+          </div>
         </div>
       </section>
+
+      {/* 2. WHAT'S INSIDE — Lavender */}
       <section
-        className="bg-[#f3f0e3] px-[6%] py-12 tablet:py-[4vw]"
+        className="bg-[#fff3dc] py-16 tablet:py-24"
         aria-labelledby="inside-title"
       >
-        <div className="mb-9 text-center">
-          <h2 id="inside-title" className="text-[max(34px,3vw)]">
-            One little set. So many ways to connect.
-          </h2>
-          <p className="mt-4 text-[max(15px,1.1vw)]">
-            Everything you need to begin a gentle conversation.
-          </p>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 tablet:grid-cols-4">
-          {[
-            {
-              image: "/assets/product-icons/story-book-cutout.png",
-              alt: "Heartly's Pocket of Feelings storybook",
-              imageClass: "object-contain",
-            },
-            {
-              image: "/assets/product-icons/fox-plush-cutout.png",
-              alt: "Heartly plush fox companion",
-              imageClass: "object-contain",
-            },
-            {
-              image: "/assets/product-icons/feeling-hearts-sheet.png",
-              alt: "Nine illustrated feeling hearts",
-              imageClass: "object-contain",
-            },
-            {
-              image: "/assets/product-icons/emotion-cards-fan.png",
-              alt: "Nine Heartly emotion cards",
-              imageClass: "object-contain",
-            },
-          ].map(({ image, alt, imageClass }) => (
-            <div
-              key={alt}
-              className="rounded-3xl border border-white bg-[#fffcf5] p-6 text-center tablet:p-[2vw]"
+        <div className={pageWidth}>
+          <div className="max-w-2xl">
+            <h2
+              id="inside-title"
+              className="mt-3 font-display text-3xl font-extrabold tablet:text-5xl"
             >
-              <img
-                src={image}
-                alt={alt}
-                className={`mx-auto mb-5 size-[max(64px,5vw)] ${imageClass}`}
-              />
-              <h3 className="text-[max(19px,1.5vw)]">{alt}</h3>
-            </div>
-          ))}
+              What’s Inside
+            </h2>
+
+            <p className="mt-4 leading-relaxed text-[#615773]">
+              Four thoughtful pieces to help little hearts explore big feelings.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 tablet:grid-cols-4">
+            {productFeatures.map((item, index) => (
+              <article key={item.title} className="min-w-0">
+                <div className="flex aspect-square items-center justify-center overflow-hidden rounded-3xl bg-white p-5">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    width={700}
+                    height={700}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+
+                <p className="mt-5 text-sm font-extrabold text-[#79609e]">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+
+                <h3 className="mt-2 text-xl font-extrabold text-[#332846]">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-[#615773]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
-      <TogetherBanner />
+
+      {/* 3. HOW IT WORKS + THE SET ENCOURAGES */}
+      <section
+        className="bg-cream px-5 py-16 tablet:py-24"
+        aria-label="How Heartly’s Pocket of Feelings works and what it encourages"
+      >
+        <div
+          className={`${pageWidth} grid items-stretch gap-8 tablet:grid-cols-2 tablet:gap-10`}
+        >
+          {/* LEFT SIDE — How It Works */}
+          <div
+            className="rounded-[2rem] bg-[#eaf5e9] p-7 shadow-sm sm:p-10"
+            aria-labelledby="how-title"
+          >
+            <h2
+              id="how-title"
+              className="mt-3 font-display text-3xl font-extrabold tablet:text-4xl"
+            >
+              How It Works
+            </h2>
+
+            <p className="mt-5 text-lg leading-relaxed text-[#405c48]">
+              There’s no right or wrong feeling — just an invitation
+              to play, share, and connect.
+            </p>
+
+            <ol className="mt-8 space-y-6">
+              {steps.map((step, index) => (
+                <li key={step} className="flex items-start gap-4">
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#438451] text-lg font-extrabold text-white">
+                    {index + 1}
+                  </span>
+
+                  <p className="pt-1.5 text-base leading-relaxed text-[#354d3b]">
+                    {step}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* RIGHT SIDE — The Set Encourages */}
+          <div
+            className="flex flex-col rounded-[2rem] bg-[#fff0e6] p-7 shadow-sm sm:p-10"
+            aria-labelledby="benefits-title"
+          >
+           <h2
+              id="benefits-title"
+              className="mt-3 font-display text-3xl font-extrabold tablet:text-4xl"
+            >
+              The Set Encourages
+            </h2>
+
+            <p className="mt-5 leading-relaxed text-[#75472f]">
+              Little moments with Heartly can help children build skills
+              that support them as they grow.
+            </p>
+
+            <ul className="mt-8 flex flex-wrap gap-3">
+              {benefits.map((benefit, index) => (
+                <li
+                  key={benefit}
+                  className={`rounded-full border px-4 py-3 text-sm font-bold ${
+                    index % 2 === 0
+                      ? "border-[#f0cfb8] bg-white text-[#865037]"
+                      : "border-[#e7c2a8] bg-[#fce1d0] text-[#865037]"
+                  }`}
+                >
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-auto pt-10">
+              <p className="text-xl font-extrabold leading-relaxed text-[#75472f] tablet:text-2xl">
+                Designed with love ❤️
+              </p>
+
+              <p className="mt-2 leading-relaxed text-[#75472f]">
+                Created to help little hearts thrive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. FINAL PURCHASE CTA — Pale yellow */}
+      <section
+        className="bg-[#fff3dc] px-5 py-16 tablet:py-24"
+        aria-labelledby="final-cta-title"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <h2
+            id="final-cta-title"
+            className="font-display text-3xl font-extrabold tablet:text-5xl"
+          >
+            Make room for every feeling.
+          </h2>
+
+          <p className="mt-5 leading-relaxed text-[#665b3c]">
+            Discover a playful way to explore emotions and connect
+            with your little one.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
+            <a
+              href={amazonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={amazonButton}
+            >
+              Buy on Amazon <ExternalLink size={18} />
+            </a>
+
+            <Link
+              href={LEARN_MORE_URL}
+              className="inline-flex items-center font-bold text-[#357d51] underline underline-offset-4 hover:text-[#244d34]"
+            >
+              Learn More
+            </Link>
+          </div>
+
+          <p className="mt-5 text-sm leading-relaxed text-[#71684f]">
+            Check Amazon for pricing, availability, and delivery.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

@@ -87,7 +87,7 @@ export default async function ProductPage({
               Your purchase, payment, and delivery are handled by Amazon.
             </p>
             <div className="mt-8 rounded-2xl bg-white p-6">
-              <h3 className="text-[max(18px,1.3vw)]">A little time together</h3>
+              <h3 className="text-[max(18px,1.3vw)]">How It Works</h3>
               <p className="mt-3 text-[max(14px,1vw)] leading-relaxed">
                 Read the story. Choose a card. Let your child pick a heart for
                 Heartly. Follow their curiosity and make room for whatever they

@@ -16,7 +16,7 @@ export function PostCard({ post }: { post: Post }) {
         className="overflow-hidden"
       >
         <Image
-          src={`/assets/blog/${post.image}.webp`}
+          src={`/assets/blog/${post.image}.png`}
           alt={post.title}
           width={1536}
           height={1024}

@@ -28,7 +28,7 @@ export async function generateMetadata({
           type: "article",
           publishedTime: post.publishedAt,
           modifiedTime: post.updatedAt,
-          images: [`/assets/blog/${post.image}.webp`],
+          images: [`/assets/blog/${post.image}.png`],
         }
       : undefined,
   };
@@ -79,7 +79,7 @@ export default async function ArticlePage({
           </div>
         </header>
         <Image
-          src={`/assets/blog/${post.image}.webp`}
+          src={`/assets/blog/${post.image}.png`}
           alt={post.title}
           width={1536}
           height={1024}

@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import { DoodleHeart } from "@/components/ui/brand";
 import { ArrowRight } from "lucide-react";
@@ -21,7 +23,7 @@ export default function Activities({ src }: { src: string }) {
           Free Activities <DoodleHeart />
         </h2>
         <p>
-          Explore free printable activities that invite children and grownups to play, create, and talk about feelings together.
+          Play, create, and explore feelings together with printable activities inspired by Heartly’s world.
         </p>
         <button
           className={`button ${buttonStyles.base} ${buttonStyles.orange}`}

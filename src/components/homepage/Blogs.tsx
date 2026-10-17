@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import { ArrowRight } from "lucide-react";
 import { DoodleHeart } from "@/components/ui/brand";
@@ -41,7 +43,7 @@ export default function Blogs() {
                 aria-label={`Read ${article.title}`}
               >
                 <Image
-                  src={`/assets/blog/${article.image}.webp`}
+                  src={`/assets/blog/${article.image}.png`}
                   alt={
                     index === 0
                       ? "A mother and daughter sharing a happy moment"

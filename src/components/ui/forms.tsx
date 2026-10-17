@@ -82,7 +82,7 @@ export function ActivityRequestForm({
         </strong>
         {receipt.demo ? (
           <>
-            <p className="mt-2 break-words">To: {receipt.email}</p>
+            <p className="mt-2 wrap-break-word">To: {receipt.email}</p>
             <p className="mt-2">
               Here’s your little kindness activity. Print it, add some crayons,
               and enjoy a moment together.
