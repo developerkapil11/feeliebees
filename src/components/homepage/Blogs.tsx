@@ -32,7 +32,9 @@ export default function Blogs() {
           </button>
         </div>
         <div className="blog-grid grid grid-cols-1 gap-5 desktop:grid-cols-3 desktop:gap-3.5 tablet:gap-4.25 min-[71.9375rem]:gap-6 wide:gap-[1.2em]">
-          {articles.slice(0, 3).map((article, index) => (
+          {articles.filter((_, index) => index !== 1)
+                  .slice(0, 3)
+                  .map((article, index) => (
             <article
               className="blog-card group overflow-hidden rounded-xl border border-[#efe6d9] bg-white transition duration-250 hover:-translate-y-1 hover:shadow-[0_10px_25px_#5541240d] desktop:rounded-[9px] wide:rounded-[.45em] [&_h3]:text-[19px] desktop:[&_h3]:min-h-[2.35em] desktop:[&_h3]:text-sm tablet:[&_h3]:text-[max(16px,1.55vw)] [&_h3>button]:text-left"
               key={article.title}
