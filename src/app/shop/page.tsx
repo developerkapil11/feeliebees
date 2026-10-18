@@ -219,7 +219,7 @@ export default function ShopPage() {
         >
           {/* LEFT SIDE — How It Works */}
           <div
-            className="rounded-[2rem] bg-[#eaf5e9] p-7 shadow-sm sm:p-10"
+            className="rounded-4xl bg-[#eaf5e9] p-7 shadow-sm sm:p-10"
             aria-labelledby="how-title"
           >
             <h2
@@ -251,7 +251,7 @@ export default function ShopPage() {
 
           {/* RIGHT SIDE — The Set Encourages */}
           <div
-            className="flex flex-col rounded-[2rem] bg-[#fff0e6] p-7 shadow-sm sm:p-10"
+            className="flex flex-col rounded-4xl bg-[#fff0e6] p-7 shadow-sm sm:p-10"
             aria-labelledby="benefits-title"
           >
            <h2
