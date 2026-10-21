@@ -1,88 +1,75 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Search } from "lucide-react";
-import { faqGroups } from "@/content/faqs";
-import { Emblem } from "@/components/ui/brand";
-import { field } from "@/components/ui/page-ui";
+import Link from "next/link";
+import { Minus, Plus } from "lucide-react";
+import type { FaqItem } from "@/content/faqs";
 
-export function FaqLibrary() {
-  const [query, setQuery] = useState("");
-  const groups = faqGroups
-    .map((group) => ({
-      ...group,
-      questions: group.questions.filter(([question, answer]) =>
-        `${question} ${answer}`.toLowerCase().includes(query.toLowerCase())
-      ),
-    }))
-    .filter((group) => group.questions.length);
+export function FaqLibrary({ faqs }: { faqs: FaqItem[] }) {
+  const [openId, setOpenId] = useState<string | null>(faqs[0]?.id ?? null);
+
   return (
-    <>
-      <label className="relative mx-auto mb-10 block max-w-[38em]">
-        <span className="sr-only">Search frequently asked questions</span>
-        <Search className="absolute top-1/2 left-4 size-5 -translate-y-1/2 text-[#6b7d6e]" />
-        <input
-          className={`${field} pl-12`}
-          placeholder="Try delivery, ages, or downloads…"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </label>
-      <div className="grid items-start gap-8 tablet:grid-cols-[.55fr_1.8fr]">
-        <nav
-          aria-label="FAQ topics"
-          className="flex flex-wrap gap-3 tablet:sticky tablet:top-8 tablet:grid"
-        >
-          {faqGroups.map((group, index) => (
-            <a
-              key={group.title}
-              href={`#${index === 1 ? "orders" : index === 2 ? "downloads" : "heartly"}`}
-              className="flex items-center gap-3 rounded-2xl border border-[#e5dfce] bg-white px-5 py-3 text-[max(14px,1.05vw)] font-extrabold hover:border-[#99b88d]"
+    <div className="border-t border-[#dfdacd]">
+      {faqs.map((faq) => {
+        const isOpen = openId === faq.id;
+        const panelId = `faq-panel-${faq.id}`;
+
+        return (
+          <article key={faq.id} className="border-b border-[#dfdacd]">
+            <h2>
+              <button
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                onClick={() => setOpenId(isOpen ? null : faq.id)}
+                className="flex w-full items-center justify-between gap-5 py-5 text-left text-[clamp(17px,1.35vw,22px)] font-extrabold text-[#422f27] tablet:py-6"
+              >
+                <span>{faq.question}</span>
+                <span
+                  aria-hidden="true"
+                  className="grid size-9 shrink-0 place-items-center rounded-full text-orange transition-colors hover:bg-button-orange-soft"
+                >
+                  {isOpen ? <Minus size={23} /> : <Plus size={23} />}
+                </span>
+              </button>
+            </h2>
+
+            <div
+              id={panelId}
+              className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
             >
-              <Emblem type={group.icon} />
-              {group.title}
-            </a>
-          ))}
-        </nav>
-        <div className="space-y-10">
-          {groups.map((group) => (
-            <section
-              id={
-                group.title === "Orders & gifting"
-                  ? "orders"
-                  : group.title === "Free activities"
-                    ? "downloads"
-                    : "heartly"
-              }
-              key={group.title}
-            >
-              <h2 className="mb-5 text-[max(29px,2.5vw)]">{group.title}</h2>
-              <div className="overflow-hidden rounded-3xl border border-[#e7e0d0] bg-white">
-                {group.questions.map(([question, answer]) => (
-                  <details
-                    key={question}
-                    className="group border-b border-[#eee8db] px-5 last:border-0 tablet:px-[2vw]"
-                  >
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-[max(16px,1.2vw)] font-extrabold [&::-webkit-details-marker]:hidden">
-                      {question}
-                      <ChevronDown className="size-5 shrink-0 text-[#64805c] transition-transform group-open:rotate-180" />
-                    </summary>
-                    <p className="pb-6 text-[max(14px,1.05vw)] leading-relaxed text-[#405771]">
-                      {answer}
+              <div className="overflow-hidden">
+                <div className="max-w-[72ch] pb-6 pr-12 text-[15px] leading-7 text-[#5e554e] tablet:pb-7 tablet:text-[clamp(15px,1.05vw,18px)]">
+                  <p>{faq.answer}</p>
+
+                  {faq.steps?.length ? (
+                    <ol className="mt-3 list-decimal space-y-1.5 pl-6 marker:font-extrabold marker:text-orange">
+                      {faq.steps.map((step) => (
+                        <li key={step} className="pl-1">
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  ) : null}
+
+                  {faq.link ? (
+                    <p className="mt-3">
+                      {faq.link.leadIn ? `${faq.link.leadIn} ` : null}
+                      <Link
+                        href={faq.link.href}
+                        className="font-extrabold text-[#327a4d] underline decoration-2 underline-offset-4 hover:text-[#245c39]"
+                      >
+                        {faq.link.label}
+                      </Link>
+                      .
                     </p>
-                  </details>
-                ))}
+                  ) : null}
+                </div>
               </div>
-            </section>
-          ))}
-          {!groups.length && (
-            <p role="status" className="rounded-3xl bg-white p-9">
-              No answers match that search. Try another word, or send us a
-              message.
-            </p>
-          )}
-        </div>
-      </div>
-    </>
+            </div>
+          </article>
+        );
+      })}
+    </div>
   );
 }

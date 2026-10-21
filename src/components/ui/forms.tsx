@@ -184,7 +184,7 @@ export function ContactForm() {
   const { state, error, submit, receipt } = useSubmission("/api/contact");
   if (state === "success")
     return (
-      <div role="status" className="rounded-3xl bg-[#e3efd8] p-9 text-center">
+      <div role="status" className="rounded-3xl bg-[#e3efd8] p-8 text-center">
         <CheckCircle2 className="mx-auto mb-5 size-12 text-[#37804d]" />
         <h2 className="text-3xl">
           {receipt.demo
@@ -209,73 +209,40 @@ export function ContactForm() {
       aria-busy={state === "sending"}
     >
       <Honeypot />
-      <div className="grid gap-5 tablet:grid-cols-2">
-        <label className="block text-[max(14px,1.05vw)] font-extrabold">
-          Your name
+      <div className="grid gap-5 tablet:grid-cols-2 tablet:gap-8">
+        <label className="block text-base font-extrabold text-[#49362d] tablet:text-lg">
+          Name
           <input
-            className={`${field} mt-2 font-semibold`}
+            className="mt-2 min-h-13 w-full rounded-xl border border-[#aeadab] bg-white px-4 py-3 font-semibold outline-none focus:border-[#438451] focus:ring-2 focus:ring-[#438451]/20"
             name="name"
             autoComplete="name"
             required
             minLength={2}
             maxLength={100}
-            placeholder="Your name"
           />
         </label>
-        <label className="block text-[max(14px,1.05vw)] font-extrabold">
-          Email address
+        <label className="block text-base font-extrabold text-[#49362d] tablet:text-lg">
+          Email
           <input
-            className={`${field} mt-2 font-semibold`}
+            className="mt-2 min-h-13 w-full rounded-xl border border-[#aeadab] bg-white px-4 py-3 font-semibold outline-none focus:border-[#438451] focus:ring-2 focus:ring-[#438451]/20"
             name="email"
             type="email"
             autoComplete="email"
             required
             maxLength={254}
-            placeholder="you@example.com"
           />
         </label>
       </div>
-      <label className="block text-[max(14px,1.05vw)] font-extrabold">
-        What’s on your mind?
-        <select
-          name="topic"
-          className={`${field} mt-2 font-semibold`}
-          defaultValue="General question"
-        >
-          <option>General question</option>
-          <option>Heartly’s gift set</option>
-          <option>Free activities</option>
-          <option>Educators & partnerships</option>
-          <option>Something else</option>
-        </select>
-      </label>
-      <label className="block text-[max(14px,1.05vw)] font-extrabold">
-        Your message
+      <label className="block text-base font-extrabold text-[#49362d] tablet:text-lg">
+        Message
         <textarea
           name="message"
-          className={`${field} mt-2 min-h-44 resize-y font-semibold`}
+          className="mt-2 min-h-32 w-full resize-y rounded-xl border border-[#aeadab] bg-white px-4 py-3 font-semibold outline-none focus:border-[#438451] focus:ring-2 focus:ring-[#438451]/20"
           required
           minLength={10}
           maxLength={4000}
-          rows={6}
-          placeholder="We’d love to hear from you…"
+          rows={4}
         />
-      </label>
-      <label className="flex items-start gap-3 text-[max(12px,.9vw)] leading-relaxed">
-        <input
-          name="consent"
-          type="checkbox"
-          required
-          value="yes"
-          className="mt-1 size-4 shrink-0 accent-[#318358]"
-        />
-        <span>
-          I agree that FeelieBees can use my details to respond to this message.{" "}
-          <Link href="/privacy" className="underline underline-offset-2">
-            Read our privacy details
-          </Link>
-          .
-        </span>
       </label>
       {error && (
         <p
@@ -286,22 +253,28 @@ export function ContactForm() {
           {error}
         </p>
       )}
-      <button
-        disabled={state === "sending"}
-        className={primaryButton}
-        type="submit"
-      >
-        {state === "sending" ? (
-          <>
-            <LoaderCircle className="animate-spin" />
-            Sending…
-          </>
-        ) : (
-          <>
-            Send your message <ArrowRight />
-          </>
-        )}
-      </button>
+      <div className="flex flex-col items-center">
+        <Link
+          href="/privacy"
+          className="text-sm font-bold text-[#327a4d] underline decoration-1 underline-offset-4 hover:text-[#245c39] tablet:text-base"
+        >
+          Privacy Policy
+        </Link>
+        <button
+          disabled={state === "sending"}
+          className="mt-4 inline-flex min-h-13 w-full max-w-sm items-center justify-center gap-2 rounded-2xl border-2 border-orange bg-orange px-8 py-3 text-lg font-extrabold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#f47e39] hover:shadow-md disabled:translate-y-0 disabled:opacity-50"
+          type="submit"
+        >
+          {state === "sending" ? (
+            <>
+              <LoaderCircle className="animate-spin" />
+              Sending…
+            </>
+          ) : (
+            "Send Message"
+          )}
+        </button>
+      </div>
     </form>
   );
 }
