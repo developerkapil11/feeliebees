@@ -14,7 +14,7 @@ export default function BlogPage() {
   return (
     <main id="main">
       {/* Blog Hero */}
-      <section className="relative grid aspect-square overflow-hidden border-b border-[#e8e6d6] bg-[#fff9e9] pt-16 tablet:aspect-auto tablet:min-h-[clamp(300px,28vw,440px)] tablet:pt-16">
+      <section className="relative grid min-h-65 overflow-hidden border-b border-[#e8e6d6] bg-[#fff9e9] pt-14 pb-6 tablet:min-h-72.5 tablet:pt-14 tablet:pb-8">
         <Image
           src="/assets/hero-banners/adventure-fox-meadow-mobile.png"
           alt=""
@@ -35,8 +35,8 @@ export default function BlogPage() {
 
         <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_at_center,#fff9e9f7_0%,#fff9e9e8_30%,#fff9e975_58%,#fff9e914_82%)]" />
 
-        <div className="relative z-2 col-start-1 row-start-1 mx-auto flex w-[88%] flex-col items-center justify-center py-8 text-center tablet:py-[2vw]">
-          <h1 className="max-w-[22ch] text-[clamp(34px,4vw,160px)] leading-[1.04] tracking-[-.035em]">
+        <div className="relative z-2 col-start-1 row-start-1 mx-auto flex w-[88%] flex-col items-center justify-center py-5 text-center tablet:py-8">
+          <h1 className="max-w-[22ch] text-[clamp(32px,3.5vw,64px)] leading-[1.15] tracking-[-.035em]">
             Understanding Feelings. Growing Connection.
           </h1>
 

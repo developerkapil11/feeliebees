@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { PageIntro, pageWidth } from "@/components/ui/page-ui";
 import { ActivityLibrary } from "@/components/activity/activity-library";
@@ -20,7 +19,7 @@ export default function ActivitiesPage() {
       </PageIntro>
 
       <section
-        className={`${pageWidth} pb-8`}
+        className={`${pageWidth} pb-4`}
         aria-label="Free activity library"
       >
         <ActivityLibrary />

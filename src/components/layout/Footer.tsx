@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +10,12 @@ import { SocialIcon } from "@/components/ui/social-icon";
 import { navigation, site } from "@/lib/site";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
+
   return (
     <footer className="site-footer relative isolate overflow-hidden bg-[#eff2df]">
       {/* Main Footer Content */}
@@ -163,7 +172,6 @@ export function Footer() {
             right-[10%]
             z-10
             w-28.75
-            tablet:bottom-18.75
             tablet:right-[12%]
             tablet:w-41.25
             desktop:bottom-12.5

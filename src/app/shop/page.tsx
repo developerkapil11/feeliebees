@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
 const LEARN_MORE_URL = "/blog/discover-heartlys-pocket-of-feelings";
 const VIDEO_URL = process.env.NEXT_PUBLIC_HEARTLY_VIDEO_URL || "";
 
+// Replace this path when the new Growing Through Play banner is ready.
+const GROWING_BANNER = "/assets/shop/whimsical-meadow-valley-banner.png";
+
 const insideItems = [
   "Storybook",
   "Heartly plush",
@@ -36,28 +40,32 @@ const benefits = [
 const steps = [
   {
     title: "Read the story",
-    description: "Join Heartly on a heartwarming adventure about feelings.",
+    description:
+      "Join Heartly on a heartwarming adventure about feelings.",
     image: "/assets/product-icons/story-book-cutout.png",
     alt: "Heartly's Pocket of Feelings storybook",
     tone: "bg-[#eef4dc]",
   },
   {
     title: "Choose a heart",
-    description: "Pick the feeling heart that matches how you feel.",
+    description:
+      "Pick the feeling heart that matches how you feel.",
     image: "/assets/product-icons/feeling-hearts-sheet.png",
     alt: "Nine feeling hearts",
     tone: "bg-[#fff0dd]",
   },
   {
     title: "Place & share",
-    description: "Put the heart with Heartly and talk about it together.",
+    description:
+      "Put the heart with Heartly and talk about it together.",
     image: "/assets/product-icons/fox-plush-cutout.png",
     alt: "Heartly plush fox with a feeling heart",
     tone: "bg-[#eef4dc]",
   },
   {
     title: "Explore a card",
-    description: "Look at the matching card to discover more about the feeling.",
+    description:
+      "Look at the matching card to discover more about the feeling.",
     image: "/assets/product-icons/emotion-cards-fan.png",
     alt: "Heartly emotion cards",
     tone: "bg-[#fff0dd]",
@@ -74,43 +82,46 @@ export default function ShopPage() {
   const amazonUrl = product.amazonUrl || site.amazon;
 
   return (
-    <main id="main" className="bg-[#fffaf0]">
+    <main id="main" className="bg-cream text-navy">
+      {/* Product hero */}
       <section
-        className="px-[6%] pb-11 pt-28 tablet:pb-14 tablet:pt-32"
+        className="px-[5%] pb-7 pt-24 tablet:pb-9 tablet:pt-28"
         aria-labelledby="product-title"
       >
-        <div className="mx-auto grid max-w-7xl items-center gap-8 tablet:grid-cols-[1.18fr_.82fr] tablet:gap-[4vw]">
+        <div className="mx-auto grid max-w-7xl items-center gap-6 tablet:grid-cols-[1.18fr_.82fr] tablet:gap-10">
           <ProductGallery videoUrl={VIDEO_URL} />
 
           <div>
             <h1
               id="product-title"
-              className="max-w-[10ch] text-[clamp(43px,4.8vw,75px)] leading-[.97] tracking-[-.04em] text-orange"
+              className="max-w-[10ch] text-[clamp(40px,4.5vw,68px)] leading-[.97] tracking-[-.04em] text-orange"
             >
               Heartly’s Pocket of Feelings
             </h1>
-            <p className="mt-5 max-w-[36ch] text-[clamp(17px,1.35vw,21px)] leading-relaxed text-[#49362d]">
+
+            <p className="mt-3 max-w-[36ch] text-[clamp(16px,1.25vw,19px)] leading-relaxed text-navy">
               A playful emotional learning kit that helps children understand,
               express, and share their feelings.
             </p>
 
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#e3edce] px-5 py-2 text-base font-extrabold text-[#48623d]">
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#e3edce] px-4 py-1.5 text-sm font-extrabold text-navy">
               <span aria-hidden="true">Ages</span>
               <span>3–7</span>
             </div>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row tablet:flex-col desktop:flex-row">
+            <div className="mt-5 flex flex-col gap-2.5 sm:flex-row tablet:flex-col desktop:flex-row">
               <a
                 href={amazonUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${button} button-orange px-7`}
+                className={`${button} button-orange px-6`}
               >
                 Buy on Amazon <ExternalLink size={18} />
               </a>
+
               <Link
                 href={LEARN_MORE_URL}
-                className={`${button} border-[#4d8052] bg-transparent px-7 text-[#397148] shadow-none hover:bg-[#e4efdc]`}
+                className={`${button} border-[#4d8052] bg-transparent px-6 text-[#397148] shadow-none hover:bg-[#e4efdc]`}
               >
                 Learn More <ArrowRight size={18} />
               </Link>
@@ -119,51 +130,54 @@ export default function ShopPage() {
         </div>
       </section>
 
+      {/* Growing Through Play: full-width banner, no overlay */}
       <section
-        className="border-y border-[#e9e0cf] bg-[#fffdf7] px-[6%] py-11 tablet:py-14"
-        aria-label="What's inside and the benefits of growing through play"
+        className="relative isolate overflow-hidden border-y border-[#e9e0cf] px-[5%] py-8 tablet:py-10"
+        aria-labelledby="growing-title"
       >
-        <div className="mx-auto grid max-w-7xl gap-9 tablet:grid-cols-[.7fr_1.5fr] tablet:gap-12">
-          <div className="tablet:border-r tablet:border-[#ded9ca] tablet:pr-12">
-            <h2 className="text-[clamp(36px,3.5vw,54px)] text-orange">
-              What’s Inside
-            </h2>
-            <ul className="mt-6 space-y-3 text-[clamp(17px,1.25vw,21px)] font-extrabold text-[#49362d]">
-              {insideItems.map((item) => (
-                <li key={item} className="flex items-center gap-4">
-                  <span className="size-2.5 shrink-0 rounded-full bg-orange" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <Image
+          src="/assets/homepage/heartly-sunlit-meadow.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover object-center"
+        />
 
-          <div>
-            <h2 className="text-[clamp(36px,3.5vw,54px)] text-orange">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <h2
+              id="growing-title"
+              className="text-[clamp(32px,3.2vw,46px)] leading-tight text-orange"
+            >
               Growing Through Play
             </h2>
-            <p className="mt-5 max-w-[72ch] text-[clamp(16px,1.18vw,19px)] leading-relaxed text-[#58463d]">
+
+            <p className="mt-3 max-w-[65ch] text-base leading-relaxed text-navy">
               Through stories, imaginative play, and shared conversations,
               Heartly helps children recognize and name feelings, explore ways
               to express them, and build emotional connection with the grownups
               they love.
             </p>
 
-            <ul className="mt-5 flex max-w-4xl flex-wrap gap-x-5 gap-y-2 text-[15px] font-extrabold text-[#564038] tablet:text-[clamp(15px,1.05vw,18px)]">
+            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm font-extrabold text-navy tablet:text-base">
               {benefits.map((benefit) => (
-                <li key={benefit} className="flex items-center gap-2.5">
-                  <span className="size-1.5 rounded-full bg-orange" />
+                <li key={benefit} className="flex items-center gap-2">
+                  <span
+                    aria-hidden="true"
+                    className="size-1.5 shrink-0 rounded-full bg-orange"
+                  />
                   {benefit}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-6">
-              <p className="flex items-center gap-2 text-xl font-extrabold text-[#49362d]">
+            <div className="mt-4">
+              <p className="flex items-center gap-2 text-lg font-extrabold text-navy">
                 Designed with love
                 <Heart className="size-5 fill-[#f26672] text-[#f26672]" />
               </p>
-              <p className="mt-1 text-base text-[#6a5a50]">
+
+              <p className="mt-0.5 text-sm text-navy">
                 Created to help little hearts thrive.
               </p>
             </div>
@@ -171,52 +185,79 @@ export default function ShopPage() {
         </div>
       </section>
 
+      {/* What's Inside + How It Works */}
       <section
-        className="px-[6%] py-11 tablet:py-14"
-        aria-labelledby="how-it-works-title"
+        className="px-[5%] py-8 tablet:py-10"
+        aria-label="What's inside and how it works"
       >
-        <div className="mx-auto max-w-7xl">
-          <h2
-            id="how-it-works-title"
-            className="text-[clamp(38px,3.8vw,58px)] text-orange"
-          >
-            How It Works
-          </h2>
+        <div className="mx-auto grid max-w-7xl gap-7 tablet:grid-cols-[.6fr_1.8fr] tablet:gap-8">
+          {/* Compact component list */}
+          <div className="tablet:border-r tablet:border-[#ded9ca] tablet:pr-6">
+            <h2 className="text-[clamp(30px,2.8vw,40px)] leading-tight text-orange">
+              What’s Inside
+            </h2>
 
-          <ol className="mt-8 grid gap-6 sm:grid-cols-2 tablet:grid-cols-4 tablet:gap-5">
-            {steps.map((step, index) => (
-              <li key={step.title} className="text-center">
-                <div
-                  className={`relative mx-auto flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-3xl ${step.tone}`}
-                >
-                  <span className="absolute left-4 top-4 z-10 grid size-11 place-items-center rounded-full bg-orange text-xl font-extrabold text-white shadow-sm">
-                    {index + 1}
-                  </span>
-                  <Image
-                    src={step.image}
-                    alt={step.alt}
-                    width={520}
-                    height={420}
-                    sizes="(max-width: 700px) 44vw, 23vw"
-                    className="h-[85%] w-[85%] object-contain"
+            <ul className="mt-4 space-y-3 text-base font-extrabold text-navy">
+              {insideItems.map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 size-2 shrink-0 rounded-full bg-orange"
                   />
-                </div>
-                <h3 className="mt-4 text-xl text-[#49362d] tablet:text-[clamp(18px,1.3vw,22px)]">
-                  {step.title}
-                </h3>
-                <p className="mx-auto mt-2 max-w-[27ch] text-[15px] leading-relaxed text-[#6a5a50] tablet:text-base">
-                  {step.description}
-                </p>
-              </li>
-            ))}
-          </ol>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* How It Works: existing product illustrations */}
+          <div>
+            <h2
+              id="how-it-works-title"
+              className="text-[clamp(32px,3.2vw,46px)] leading-tight text-orange"
+            >
+              How It Works
+            </h2>
+
+            <ol className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 desktop:grid-cols-4 desktop:gap-3">
+              {steps.map((step, index) => (
+                <li key={step.title} className="min-w-0 text-center">
+                  <div
+                    className={`relative mx-auto flex aspect-4/3 w-full items-center justify-center overflow-hidden rounded-2xl ${step.tone}`}
+                  >
+                    <span className="absolute left-2.5 top-2.5 z-10 grid size-8 place-items-center rounded-full bg-orange text-base font-extrabold text-white shadow-sm">
+                      {index + 1}
+                    </span>
+
+                    <Image
+                      src={step.image}
+                      alt={step.alt}
+                      width={520}
+                      height={420}
+                      sizes="(max-width: 639px) 90vw, (max-width: 1023px) 42vw, 18vw"
+                      className="h-[85%] w-[85%] object-contain"
+                    />
+                  </div>
+
+                  <h3 className="mt-3 text-base font-extrabold text-navy">
+                    {step.title}
+                  </h3>
+
+                  <p className="mx-auto mt-1 max-w-[27ch] text-sm leading-snug text-navy">
+                    {step.description}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
+      {/* Bottom CTA */}
       <section
         id="shop-cta"
         aria-labelledby="shop-cta-title"
-        className="relative isolate flex min-h-72 items-center justify-center overflow-hidden px-[6%] py-12 text-center tablet:min-h-80 tablet:py-14"
+        className="relative isolate flex min-h-60 items-center justify-center overflow-hidden px-[5%] py-8 text-center tablet:min-h-64 tablet:py-10"
       >
         <Image
           src="/assets/shop/whimsical-meadow-valley-banner.png"
@@ -225,22 +266,26 @@ export default function ShopPage() {
           sizes="100vw"
           className="-z-20 object-cover object-center"
         />
+
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,#fffaf0ed_0%,#fffaf0c9_35%,#fffaf04d_66%,transparent_82%)]" />
+
         <div>
           <h2
             id="shop-cta-title"
-            className="text-[clamp(34px,3.4vw,52px)] text-orange"
+            className="text-[clamp(30px,3.2vw,44px)] leading-tight text-orange"
           >
             Make room for every feeling.
           </h2>
-          <p className="mt-3 text-base text-[#40513f] tablet:text-lg">
+
+          <p className="mt-2 text-base text-navy">
             Heartly helps little hearts understand big feelings.
           </p>
+
           <a
             href={amazonUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${button} button-orange mt-6 px-8`}
+            className={`${button} button-orange mt-4 px-7`}
           >
             Buy on Amazon <ExternalLink size={18} />
           </a>

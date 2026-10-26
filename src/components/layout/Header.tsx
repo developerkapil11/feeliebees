@@ -14,6 +14,11 @@ import { field } from "@/components/ui/page-ui";
 
 export function Header() {
   const pathname = usePathname();
+
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
+  
   const links = navigation
     .filter((item) => item.label !== "Our Story")
     .map((item) => ({

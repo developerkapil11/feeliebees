@@ -79,8 +79,9 @@ export function PageIntro({
 }) {
   const artwork = introArt[art ?? introArtByTitle[title] ?? "story"];
   const leftAligned = artwork.align === "left";
+
   return (
-    <section className="relative grid aspect-square overflow-hidden border-b border-[#e8e6d6] bg-[#fff9e9] pt-20 tablet:aspect-auto tablet:min-h-[clamp(360px,34vw,540px)] tablet:pt-24">
+    <section className="relative grid min-h-70 overflow-hidden border-b border-[#e8e6d6] bg-[#fff9e9] pt-16 pb-8 tablet:min-h-65 tablet:pt-16 tablet:pb-10">
       <Image
         src={artwork.mobileSrc}
         alt=""
@@ -89,6 +90,7 @@ export function PageIntro({
         sizes="100vw"
         className="pointer-events-none z-0 object-cover object-center tablet:hidden"
       />
+
       <Image
         src={artwork.src}
         alt=""
@@ -97,22 +99,38 @@ export function PageIntro({
         sizes="100vw"
         className="pointer-events-none z-0 hidden object-cover object-center tablet:block"
       />
+
       <div
-        className={`pointer-events-none absolute inset-0 z-1 ${leftAligned ? "bg-[linear-gradient(90deg,#fff9e9fa_0%,#fff9e9e8_31%,#fff9e96b_52%,transparent_72%)] max-tablet:bg-[#fff9e9b8]" : "bg-[radial-gradient(ellipse_at_center,#fff9e9f7_0%,#fff9e9e8_30%,#fff9e975_58%,#fff9e914_82%)]"}`}
+        className={`pointer-events-none absolute inset-0 z-1 ${
+          leftAligned
+            ? "bg-[linear-gradient(90deg,#fff9e9fa_0%,#fff9e9e8_31%,#fff9e96b_52%,transparent_72%)] max-tablet:bg-[#fff9e9b8]"
+            : "bg-[radial-gradient(ellipse_at_center,#fff9e9f7_0%,#fff9e9e8_30%,#fff9e975_58%,#fff9e914_82%)]"
+        }`}
       />
+
       <div
-        className={`relative z-2 col-start-1 row-start-1 mx-auto flex w-[88%] flex-col justify-center py-10 tablet:py-[3vw] ${leftAligned ? "items-center text-center tablet:items-start tablet:text-left" : "items-center text-center"}`}
+        className={`relative z-2 col-start-1 row-start-1 mx-auto flex w-[88%] flex-col justify-center py-6 tablet:py-8 ${
+          leftAligned
+            ? "items-center text-center tablet:items-start tablet:text-left"
+            : "items-center text-center"
+        }`}
       >
-        <p className="mb-4 flex items-center gap-2 text-[max(11px,.85vw)] font-black tracking-[.15em] text-[#398357] uppercase">
+        <p className="mb-3 flex items-center gap-2 text-[max(11px,.85vw)] font-black tracking-[.15em] text-[#398357] uppercase">
           {eyebrow}
         </p>
+
         <h1
-          className={`${leftAligned ? "tablet:max-w-[12ch]" : "max-w-[18ch]"} max-w-[18ch] text-[clamp(40px,4.5vw,180px)] leading-[1.04] tracking-[-.035em]`}
+          className={`${
+            leftAligned ? "tablet:max-w-[12ch]" : "max-w-[18ch]"
+          } max-w-[18ch] text-[clamp(36px,4.5vw,100px)] leading-[1.04] tracking-[-.035em]`}
         >
           {title}
         </h1>
+
         <div
-          className={`mt-5 max-w-[52ch] text-[max(15px,1.2vw)] leading-relaxed ${leftAligned ? "tablet:max-w-[38ch]" : ""}`}
+          className={`mt-3 max-w-[52ch] text-[max(15px,1.2vw)] leading-relaxed ${
+            leftAligned ? "tablet:max-w-[38ch]" : ""
+          }`}
         >
           {children}
         </div>
