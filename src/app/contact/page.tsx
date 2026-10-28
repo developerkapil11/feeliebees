@@ -1,6 +1,7 @@
+
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { ContactForm } from "@/components/ui/forms";
 import { SocialIcon } from "@/components/ui/social-icon";
 import { site } from "@/lib/site";
@@ -13,20 +14,14 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main id="main" className="bg-cream px-[6%] pb-12 pt-28 tablet:pt-32">
+    <main id="main" className="bg-cream px-[6%] pb-8 pt-24 tablet:pt-28">
       <div className="mx-auto max-w-5xl">
         <section
-          className="grid items-center gap-3 text-center tablet:grid-cols-[.8fr_1.2fr] tablet:text-left"
+          className="grid items-center gap-1 text-center tablet:grid-cols-[.8fr_1.2fr] tablet:gap-3 tablet:text-left"
           aria-labelledby="contact-title"
         >
           <div className="relative mx-auto h-52 w-72 tablet:h-60 tablet:w-80">
-            <Image
-              src="/assets/illustrated-icons/sprout.webp"
-              alt=""
-              width={360}
-              height={360}
-              className="absolute bottom-3 left-0 w-24 -rotate-12 opacity-80"
-            />
+            {/* Heartly stays at the existing size */}
             <Image
               src="/assets/illustrated-icons/fox.webp"
               alt="Heartly the fox sitting in the garden"
@@ -35,75 +30,98 @@ export default function ContactPage() {
               priority
               className="absolute bottom-0 left-1/2 z-10 w-48 -translate-x-1/2 object-contain tablet:w-56"
             />
+
+            {/* Blue butterflies around Heartly */}
             <Image
               src="/assets/illustrated-icons/butterfly.webp"
               alt=""
+              aria-hidden="true"
               width={360}
               height={360}
-              className="absolute right-5 top-5 w-11 rotate-12"
+              className="absolute left-4 top-20 z-20 w-8 -rotate-12 hue-rotate-[175deg] saturate-150"
+            />
+
+            <Image
+              src="/assets/illustrated-icons/butterfly.webp"
+              alt=""
+              aria-hidden="true"
+              width={360}
+              height={360}
+              className="absolute right-5 top-2 z-20 w-10 rotate-12 hue-rotate-[175deg] saturate-150"
             />
           </div>
 
-          <div className="pb-5 tablet:pb-0">
-            <h1
-              id="contact-title"
-              className="text-[clamp(48px,5vw,74px)] leading-none tracking-[-.04em] text-orange"
-            >
-              Let’s connect
-            </h1>
-            <p className="mt-3 text-[clamp(20px,1.75vw,28px)] font-extrabold text-[#49362d]">
+          <div className="pb-3 tablet:pb-0">
+            <div className="relative inline-block">
+              <h1
+                id="contact-title"
+                className="text-[clamp(40px,4vw,60px)] leading-[1.05] tracking-[-.04em] text-orange"
+              >
+                Let’s connect
+              </h1>
+
+              <Image
+                src="/assets/illustrated-icons/butterfly.webp"
+                alt=""
+                aria-hidden="true"
+                width={360}
+                height={360}
+                className="absolute -right-10 top-1/2 w-8 -translate-y-1/2 rotate-12 hue-rotate-[175deg] saturate-150 tablet:-right-12"
+              />
+            </div>
+
+            <p className="mt-2 text-[clamp(18px,1.4vw,23px)] font-extrabold text-navy">
               We’d love to hear from you.
             </p>
           </div>
         </section>
 
-        <section className="mt-3" aria-label="Send FeelieBees a message">
+        <section
+          className="mt-1 tablet:mt-2"
+          aria-label="Send FeelieBees a message"
+        >
           <ContactForm />
         </section>
 
-        <aside className="relative mt-10 overflow-hidden rounded-3xl bg-[#eef2df] px-6 py-7 tablet:px-10 tablet:py-8">
-          <Image
-            src="/assets/illustrated-icons/sprout.webp"
-            alt=""
-            width={360}
-            height={360}
-            className="pointer-events-none absolute -bottom-5 -left-3 w-28 -rotate-12 opacity-75 tablet:w-36"
-          />
-          <Image
-            src="/assets/illustrated-icons/sprout.webp"
-            alt=""
-            width={360}
-            height={360}
-            className="pointer-events-none absolute -bottom-5 -right-3 w-28 rotate-12 opacity-75 tablet:w-36"
-          />
+        {/* Compact contact information banner */}
+        <aside className="mt-6 rounded-2xl bg-[#eff2df] px-4 py-4 text-center tablet:mt-8 tablet:px-8 tablet:py-5">
+          <h2 className="text-2xl font-extrabold text-orange tablet:text-3xl">
+            FeelieBees
+          </h2>
 
-          <div className="relative z-10 mx-auto w-fit min-w-0">
-            <h2 className="text-3xl text-[#49362d] tablet:text-4xl">
-              FeelieBees
-            </h2>
-            <div className="mt-4 space-y-3 text-base text-[#49362d] tablet:text-lg">
-              {site.email ? (
-                <a
-                  href={`mailto:${site.email}`}
-                  className="flex items-center gap-3 break-all transition-colors hover:text-[#327a4d]"
-                >
-                  <Mail className="size-6 shrink-0 text-[#5a713f]" />
-                  {site.email}
-                </a>
-              ) : null}
-              {site.instagram ? (
-                <a
-                  href={site.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 font-extrabold text-[#327a4d] underline decoration-1 underline-offset-4 hover:text-[#245c39]"
-                >
-                  <SocialIcon name="instagram" />
-                  Find us on Instagram
-                  <ArrowRight className="size-5 shrink-0" />
-                </a>
-              ) : null}
-            </div>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 text-sm text-navy tablet:gap-x-5 tablet:text-base">
+            {site.email && (
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex min-w-0 items-center gap-2 break-all transition-opacity hover:opacity-70"
+              >
+                <Mail
+                  aria-hidden="true"
+                  className="size-5 shrink-0"
+                  strokeWidth={1.8}
+                />
+                <span>{site.email}</span>
+              </a>
+            )}
+
+            {site.email && site.instagram && (
+              <span
+                aria-hidden="true"
+                className="hidden h-6 border-l border-[#cbd4b9] sm:block"
+              />
+            )}
+
+            {site.instagram && (
+              <a
+                href={site.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 transition-opacity hover:opacity-70"
+              >
+                <SocialIcon name="instagram" />
+                <span>Find us on Instagram</span>
+              </a>
+            )}
           </div>
         </aside>
       </div>
