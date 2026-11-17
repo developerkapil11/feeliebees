@@ -5,20 +5,16 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { ArrowRight, Menu, Search, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Menu, Search, ShoppingBag, X } from "lucide-react";
 import { navigation } from "@/lib/site";
 import { posts, products } from "@/lib/content";
+import { CART_UPDATED_EVENT, getCartCount } from "@/lib/cart";
 import { Dialog } from "@/components/ui/dialog";
 import { field } from "@/components/ui/page-ui";
 
 export function Header() {
   const pathname = usePathname();
-
-  if (pathname.startsWith("/studio")) {
-    return null;
-  }
-  
   const links = navigation
     .filter((item) => item.label !== "Our Story")
     .map((item) => ({
@@ -30,6 +26,24 @@ export function Header() {
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
   const [query, setQuery] = useState("");
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const syncCartCount = () => setCartCount(getCartCount());
+    syncCartCount();
+    window.addEventListener(CART_UPDATED_EVENT, syncCartCount);
+    window.addEventListener("storage", syncCartCount);
+
+    return () => {
+      window.removeEventListener(CART_UPDATED_EVENT, syncCartCount);
+      window.removeEventListener("storage", syncCartCount);
+    };
+  }, []);
+
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
+
   const results = [
     ...products.map((product) => ({
       label: product.name,
@@ -94,6 +108,20 @@ export function Header() {
               ))}
             </nav>
             <div className="flex items-center gap-1 wide:gap-[.7vw]">
+              <Link
+                href="/cart"
+                aria-label={`Shopping cart${cartCount ? ` with ${cartCount} ${cartCount === 1 ? "item" : "items"}` : ""}`}
+                aria-current={active("/cart") ? "page" : undefined}
+                className="relative grid size-11 place-items-center rounded-full border-2 border-orange bg-white text-orange transition hover:-translate-y-0.5 hover:bg-[#fff7ee]"
+                onClick={() => setMenu(false)}
+              >
+                <ShoppingBag className="size-[max(20px,1.4vw)]" aria-hidden="true" />
+                {cartCount > 0 && (
+                  <span className="absolute -right-1 -top-1 grid min-h-5 min-w-5 place-items-center rounded-full bg-navy px-1 text-[10px] font-black leading-none text-white">
+                    {cartCount > 99 ? "99+" : cartCount}
+                  </span>
+                )}
+              </Link>
               <button
                 aria-label="Search FeelieBees"
                 onClick={() => {

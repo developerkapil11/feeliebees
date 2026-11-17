@@ -2,13 +2,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Heart } from "lucide-react";
+import { ArrowRight, Heart } from "lucide-react";
 import { notFound } from "next/navigation";
 
+import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { ProductGallery } from "@/components/shop/product-gallery";
 import { button } from "@/components/ui/page-ui";
 import { products } from "@/lib/content";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Heartly’s Pocket of Feelings | FeelieBees",
@@ -20,7 +20,7 @@ const LEARN_MORE_URL = "/blog/discover-heartlys-pocket-of-feelings";
 const VIDEO_URL = process.env.NEXT_PUBLIC_HEARTLY_VIDEO_URL || "";
 
 // Replace this path when the new Growing Through Play banner is ready.
-const GROWING_BANNER = "/assets/shop/whimsical-meadow-valley-banner.png";
+const GROWING_BANNER = "/assets/shop/woodland-cta-banner-v2.png";
 
 const insideItems = [
   "Storybook",
@@ -79,13 +79,11 @@ export default function ShopPage() {
 
   if (!product) notFound();
 
-  const amazonUrl = product.amazonUrl || site.amazon;
-
   return (
     <main id="main" className="bg-cream text-navy">
       {/* Product hero */}
       <section
-        className="px-[5%] pb-7 pt-24 tablet:pb-9 tablet:pt-28"
+        className="px-[5%] pb-7 pt-28 tablet:pb-9 tablet:pt-32"
         aria-labelledby="product-title"
       >
         <div className="mx-auto grid max-w-7xl items-center gap-6 tablet:grid-cols-[1.18fr_.82fr] tablet:gap-10">
@@ -110,14 +108,9 @@ export default function ShopPage() {
             </div>
 
             <div className="mt-5 flex flex-col gap-2.5 sm:flex-row tablet:flex-col desktop:flex-row">
-              <a
-                href={amazonUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <AddToCartButton
                 className={`${button} button-orange px-6`}
-              >
-                Buy on Amazon <ExternalLink size={18} />
-              </a>
+              />
 
               <Link
                 href={LEARN_MORE_URL}
@@ -257,10 +250,10 @@ export default function ShopPage() {
       <section
         id="shop-cta"
         aria-labelledby="shop-cta-title"
-        className="relative isolate flex min-h-60 items-center justify-center overflow-hidden px-[5%] py-8 text-center tablet:min-h-64 tablet:py-10"
+        className="relative isolate flex min-h-60 items-center justify-center overflow-hidden px-[5%] py-8 text-center tablet:aspect-3/1 tablet:min-h-0 tablet:py-10"
       >
         <Image
-          src="/assets/shop/whimsical-meadow-valley-banner.png"
+          src={GROWING_BANNER}
           alt=""
           fill
           sizes="100vw"
@@ -281,14 +274,9 @@ export default function ShopPage() {
             Heartly helps little hearts understand big feelings.
           </p>
 
-          <a
-            href={amazonUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <AddToCartButton
             className={`${button} button-orange mt-4 px-7`}
-          >
-            Buy on Amazon <ExternalLink size={18} />
-          </a>
+          />
         </div>
       </section>
     </main>

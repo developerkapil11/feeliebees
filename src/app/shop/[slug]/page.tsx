@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Check, ExternalLink } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
+import { AddToCartButton } from "@/components/cart/add-to-cart-button";
 import { products } from "@/lib/content";
-import { site } from "@/lib/site";
 import {
   pageWidth,
-  amazonButton,
+  button,
   TogetherBanner,
 } from "@/components/ui/page-ui";
 import { ProductCardSlider } from "@/components/shop/product-card-slider";
@@ -75,16 +75,9 @@ export default async function ProductPage({
                 </li>
               ))}
             </ul>
-            <a
-              href={product.amazonUrl || site.amazon}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${amazonButton} mt-3`}
-            >
-              Buy on Amazon <ExternalLink />
-            </a>
+            <AddToCartButton className={`${button} button-orange mt-3`} />
             <p className="mt-4 text-[max(12px,.9vw)] text-[#617069]">
-              Your purchase, payment, and delivery are handled by Amazon.
+              Your cart is saved on this device. Checkout is currently a visual preview and does not collect payment.
             </p>
             <div className="mt-8 rounded-2xl bg-white p-6">
               <h3 className="text-[max(18px,1.3vw)]">How It Works</h3>

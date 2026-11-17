@@ -30,8 +30,8 @@ const introArt: Record<
     align: "left",
   },
   activities: {
-    src: "/assets/hero-banners/heartly-sunlit-meadow.webp",
-    mobileSrc: "/assets/hero-banners/activities-fox-forest-mobile.png",
+    src: "/assets/hero-banners/activities-page18-foxes-v3.webp",
+    mobileSrc: "/assets/hero-banners/activities-page18-foxes-mobile-v4.webp",
     align: "left",
   },
   blog: {
@@ -77,18 +77,22 @@ export function PageIntro({
   children: ReactNode;
   art?: PageIntroArt;
 }) {
-  const artwork = introArt[art ?? introArtByTitle[title] ?? "story"];
+  const artworkKey = art ?? introArtByTitle[title] ?? "story";
+  const artwork = introArt[artworkKey];
   const leftAligned = artwork.align === "left";
+  const bottomAligned = artworkKey === "activities";
 
   return (
-    <section className="relative grid min-h-70 overflow-hidden border-b border-[#e8e6d6] bg-[#fff9e9] pt-16 pb-8 tablet:min-h-65 tablet:pt-16 tablet:pb-10">
+    <section className="relative grid min-h-70 overflow-hidden border-b border-[#e8e6d6] bg-[#fff9e9] pt-28 pb-8 tablet:min-h-65 tablet:pt-32 tablet:pb-10">
       <Image
         src={artwork.mobileSrc}
         alt=""
         fill
         priority
         sizes="100vw"
-        className="pointer-events-none z-0 object-cover object-center tablet:hidden"
+        className={`pointer-events-none z-0 object-cover tablet:hidden ${
+          bottomAligned ? "object-bottom" : "object-center"
+        }`}
       />
 
       <Image
@@ -97,7 +101,9 @@ export function PageIntro({
         fill
         priority
         sizes="100vw"
-        className="pointer-events-none z-0 hidden object-cover object-center tablet:block"
+        className={`pointer-events-none z-0 hidden object-cover tablet:block ${
+          bottomAligned ? "object-bottom" : "object-center"
+        }`}
       />
 
       <div

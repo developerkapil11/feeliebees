@@ -5,6 +5,7 @@ export const homePage = defineType({
   name: "homePage",
   title: "Hero",
   type: "document",
+  __experimental_formPreviewTitle: false,
 
   fields: [
     defineField({

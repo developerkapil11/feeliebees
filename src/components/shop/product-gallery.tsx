@@ -13,8 +13,8 @@ type GalleryItem = {
 const galleryItems: GalleryItem[] = [
   {
     id: "overview",
-    src: "/assets/shop/heartlys-foxes-meadow.png",
-    alt: "Heartly's Pocket of Feelings story and characters",
+    src: "/assets/shop/heartlys-product-set.png",
+    alt: "Heartly's Pocket of Feelings kit with plush fox, storybook, emotion cards, feeling hearts, and box",
   },
   {
     id: "heartly",
@@ -51,7 +51,7 @@ export function ProductGallery({ videoUrl }: { videoUrl?: string }) {
             controls
             playsInline
             preload="metadata"
-            poster="/assets/shop/heartlys-foxes-meadow.png"
+            poster="/assets/shop/heartlys-product-set.png"
             className="h-full w-full object-cover"
             aria-label="Heartly's Pocket of Feelings product video"
           >
@@ -80,7 +80,7 @@ export function ProductGallery({ videoUrl }: { videoUrl?: string }) {
             className={`relative aspect-4/3 overflow-hidden rounded-xl border-2 bg-[#f4eedc] transition ${activeId === "video" ? "border-orange shadow-sm" : "border-transparent hover:border-[#b9c7a8]"}`}
           >
             <Image
-              src="/assets/shop/heartlys-foxes-meadow.png"
+              src="/assets/shop/heartlys-product-set.png"
               alt=""
               fill
               sizes="12vw"

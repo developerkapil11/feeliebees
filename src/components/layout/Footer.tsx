@@ -17,7 +17,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="site-footer relative isolate overflow-hidden bg-[#eff2df]">
+    <footer className="site-footer relative isolate overflow-hidden bg-[#f4f4ec]">
       {/* Main Footer Content */}
       <div className="relative z-10 mx-auto w-[86%]">
         <div
@@ -35,7 +35,6 @@ export function Footer() {
             tablet:pb-4
           "
         >
-          {/* Logo */}
           {/* Logo */}
           <div className="flex items-start justify-center tablet:justify-start">
             <Link
@@ -144,47 +143,50 @@ export function Footer() {
       >
         {/* Full Meadow Image */}
         <Image
-          src="/assets/footer/footer-meadow-border.png"
+          src="/assets/footer/footer-book-meadow.png"
           alt=""
-          width={2172}
-          height={724}
-          priority
+          width={1600}
+          height={150}
           sizes="100vw"
           className="
             absolute
-            -bottom-2.5
+            bottom-0
             left-0
             block
             h-auto
             w-full
             max-w-none
-            tablet:-bottom-3.75
-            desktop:-bottom-5
             "
           />
 
-        {/* Heartly - positioned closer to the content and slightly above grass */}
+        {/* Heartly, grounded between the yellow flower and mushrooms */}
         <div
           className="
             pointer-events-none
             absolute
-            bottom-10
-            right-[10%]
+            bottom-1
+            right-[4%]
             z-10
             w-28.75
-            tablet:right-[12%]
+            tablet:bottom-1.5
+            tablet:right-[7%]
             tablet:w-41.25
-            desktop:bottom-12.5
-            desktop:right-[12%]
+            desktop:bottom-2
+            desktop:right-[8%]
             desktop:w-48.75
           "
         >
+          <span
+            aria-hidden="true"
+            className="absolute bottom-0 left-1/2 z-0 h-3 w-[68%] -translate-x-1/2 rounded-[50%] bg-[#31552f]/24 blur-[5px]"
+          />
+
           <Image
             src="/assets/footer/heartly-holding-heart.png"
             alt="Heartly holding a heart"
-            width={400}
-            height={600}
-            className="block h-auto w-full object-contain"
+            width={948}
+            height={1660}
+            className="relative z-10 block h-auto w-full object-contain"
             sizes="
               (max-width: 767px) 115px,
               (max-width: 1024px) 165px,

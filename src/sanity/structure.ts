@@ -21,12 +21,15 @@ export const structure: StructureResolver = (S) =>
                     .documentId("homepage-hero")
                     .title("Hero")
                 ),
-
-              S.listItem()
+              
+                S.listItem()
                 .title("Product")
                 .id("homepage-product")
                 .child(
-                  S.component(() => null).title("Product")
+                  S.document()
+                    .schemaType("productPage")
+                    .documentId("homepage-product")
+                    .title("Product")
                 ),
 
               S.listItem()

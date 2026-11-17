@@ -14,14 +14,35 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main id="main" className="bg-cream px-[6%] pb-8 pt-24 tablet:pt-28">
-      <div className="mx-auto max-w-5xl">
+    <main
+      id="main"
+      className="relative isolate overflow-hidden bg-cream px-[6%] pb-8 pt-28 tablet:pt-32"
+    >
+      <Image
+        src="/assets/contact/woodland-side-border.png"
+        alt=""
+        aria-hidden="true"
+        fill
+        priority
+        sizes="100vw"
+        className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full object-fill object-top select-none min-[1280px]:block"
+      />
+
+      <div className="relative z-10 mx-auto max-w-5xl">
         <section
           className="grid items-center gap-1 text-center tablet:grid-cols-[.8fr_1.2fr] tablet:gap-3 tablet:text-left"
           aria-labelledby="contact-title"
         >
           <div className="relative mx-auto h-52 w-72 tablet:h-60 tablet:w-80">
-            {/* Heartly stays at the existing size */}
+            <Image
+              src="/assets/contact/heartly-grass-patch.png"
+              alt=""
+              aria-hidden="true"
+              width={520}
+              height={174}
+              className="absolute bottom-0 left-1/2 z-0 w-64 -translate-x-1/2 object-contain opacity-90 tablet:w-72"
+            />
+
             <Image
               src="/assets/illustrated-icons/fox.webp"
               alt="Heartly the fox sitting in the garden"
@@ -29,25 +50,6 @@ export default function ContactPage() {
               height={360}
               priority
               className="absolute bottom-0 left-1/2 z-10 w-48 -translate-x-1/2 object-contain tablet:w-56"
-            />
-
-            {/* Blue butterflies around Heartly */}
-            <Image
-              src="/assets/illustrated-icons/butterfly.webp"
-              alt=""
-              aria-hidden="true"
-              width={360}
-              height={360}
-              className="absolute left-4 top-20 z-20 w-8 -rotate-12 hue-rotate-[175deg] saturate-150"
-            />
-
-            <Image
-              src="/assets/illustrated-icons/butterfly.webp"
-              alt=""
-              aria-hidden="true"
-              width={360}
-              height={360}
-              className="absolute right-5 top-2 z-20 w-10 rotate-12 hue-rotate-[175deg] saturate-150"
             />
           </div>
 
@@ -59,15 +61,6 @@ export default function ContactPage() {
               >
                 Let’s connect
               </h1>
-
-              <Image
-                src="/assets/illustrated-icons/butterfly.webp"
-                alt=""
-                aria-hidden="true"
-                width={360}
-                height={360}
-                className="absolute -right-10 top-1/2 w-8 -translate-y-1/2 rotate-12 hue-rotate-[175deg] saturate-150 tablet:-right-12"
-              />
             </div>
 
             <p className="mt-2 text-[clamp(18px,1.4vw,23px)] font-extrabold text-navy">
