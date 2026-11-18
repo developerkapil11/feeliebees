@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ActivitiesPage() {
   return (
     <main id="main">
-      <PageIntro title="Free Activities" art="activities">
+      <PageIntro title="Free Activities" art="activities" compact>
         <p>
           Play, create, and explore feelings together with free printable
           activities inspired by Heartly’s world.
@@ -19,7 +19,7 @@ export default function ActivitiesPage() {
       </PageIntro>
 
       <section
-        className={`${pageWidth} pb-4`}
+        className="mx-auto w-[88%] pt-4 pb-4 tablet:pt-4"
         aria-label="Free activity library"
       >
         <ActivityLibrary />

@@ -11,8 +11,8 @@ export default function OurStory({ src }: { src: string }) {
         src={src}
         unoptimized
         alt="Joyful forest friends splashing together in a woodland puddle"
-        width={2048}
-        height={768}
+        width={3344}
+        height={1510}
         sizes="100vw"
         className="section-art pointer-events-none absolute inset-0 z-0 h-full w-full object-cover desktop:relative desktop:inset-auto desktop:col-start-1 desktop:row-start-1 desktop:block desktop:h-auto desktop:object-contain"
       />

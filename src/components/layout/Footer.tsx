@@ -137,7 +137,7 @@ export function Footer() {
           h-37.5
           w-full
           tablet:mt-0
-          tablet:h-43.75
+          tablet:h-20.75
           desktop:h-47.5
         "
       >
@@ -169,10 +169,10 @@ export function Footer() {
             z-10
             w-28.75
             tablet:bottom-1.5
-            tablet:right-[7%]
+            tablet:right-[11%]
             tablet:w-41.25
             desktop:bottom-2
-            desktop:right-[8%]
+            desktop:right-[12%]
             desktop:w-48.75
           "
         >

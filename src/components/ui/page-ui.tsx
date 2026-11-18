@@ -71,19 +71,27 @@ export function PageIntro({
   title,
   children,
   art,
+  compact = false,
 }: {
   eyebrow?: string;
   title: string;
   children: ReactNode;
   art?: PageIntroArt;
-}) {
+  compact?: boolean;
+}){
   const artworkKey = art ?? introArtByTitle[title] ?? "story";
   const artwork = introArt[artworkKey];
   const leftAligned = artwork.align === "left";
   const bottomAligned = artworkKey === "activities";
 
   return (
-    <section className="relative grid min-h-70 overflow-hidden border-b border-[#e8e6d6] bg-[#fff9e9] pt-28 pb-8 tablet:min-h-65 tablet:pt-32 tablet:pb-10">
+    <section className={`relative grid overflow-hidden border-b border-[#e8e6d6] bg-[#fff9e9]
+          ${
+            compact
+              ? "min-h-52.5 pt-20 pb-5 tablet:min-h-47.5 tablet:pt-24 tablet:pb-5"
+              : "min-h-70 pt-28 pb-8 tablet:min-h-65 tablet:pt-32 tablet:pb-10"
+          }`}
+      >
       <Image
         src={artwork.mobileSrc}
         alt=""
@@ -128,7 +136,11 @@ export function PageIntro({
         <h1
           className={`${
             leftAligned ? "tablet:max-w-[12ch]" : "max-w-[18ch]"
-          } max-w-[18ch] text-[clamp(36px,4.5vw,100px)] leading-[1.04] tracking-[-.035em]`}
+          } max-w-[18ch] ${
+            compact
+              ? "text-[clamp(30px,3.2vw,64px)]"
+              : "text-[clamp(36px,4.5vw,100px)]"
+          } leading-[1.04] tracking-[-.035em]`}
         >
           {title}
         </h1>
